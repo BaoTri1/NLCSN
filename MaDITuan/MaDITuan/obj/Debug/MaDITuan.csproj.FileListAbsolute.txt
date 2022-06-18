@@ -1,0 +1,15 @@
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\bin\Debug\MaDITuan.exe.config
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\bin\Debug\MaDITuan.exe
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\bin\Debug\MaDITuan.pdb
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.csproj.AssemblyReference.cache
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.csproj.SuggestedBindingRedirects.cache
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_Menu.resources
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.Properties.Resources.resources
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.csproj.GenerateResource.cache
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.csproj.CoreCompileInputs.cache
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.exe
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.pdb
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_LuatChoi.resources
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_MPmadituan.resources
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.Form1.resources
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_FightingGame.resources
