@@ -68,7 +68,7 @@
             this.btnMoPhong.Name = "btnMoPhong";
             this.btnMoPhong.Size = new System.Drawing.Size(450, 58);
             this.btnMoPhong.TabIndex = 3;
-            this.btnMoPhong.Text = "Mô phỏng Mã Đi Tuần";
+            this.btnMoPhong.Text = "Chế độ Máy chơi";
             this.btnMoPhong.UseVisualStyleBackColor = false;
             this.btnMoPhong.Click += new System.EventHandler(this.btnMoPhong_Click);
             // 
@@ -82,7 +82,7 @@
             this.btnDoiKhang.Name = "btnDoiKhang";
             this.btnDoiKhang.Size = new System.Drawing.Size(450, 58);
             this.btnDoiKhang.TabIndex = 4;
-            this.btnDoiKhang.Text = "Trò chơi đối kháng";
+            this.btnDoiKhang.Text = "Chế độ Người Chơi";
             this.btnDoiKhang.UseVisualStyleBackColor = false;
             this.btnDoiKhang.Click += new System.EventHandler(this.btnDoiKhang_Click);
             // 
@@ -92,7 +92,7 @@
             this.btnThoat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnThoat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnThoat.ImageKey = "(none)";
-            this.btnThoat.Location = new System.Drawing.Point(164, 597);
+            this.btnThoat.Location = new System.Drawing.Point(179, 598);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(450, 58);
             this.btnThoat.TabIndex = 5;

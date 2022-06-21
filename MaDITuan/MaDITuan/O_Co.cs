@@ -9,8 +9,8 @@ namespace MaDITuan
 {
     public class O_Co
     {
-        public static int width = 80;
-        public static int height = 80;
+        public static int width = 70;
+        public static int height = 70;
         private int check;
         private PictureBox o_co;
         private int x;

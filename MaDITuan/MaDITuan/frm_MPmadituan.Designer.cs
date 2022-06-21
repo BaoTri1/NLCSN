@@ -38,22 +38,21 @@
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel_TT = new System.Windows.Forms.Panel();
             this.gBox_ChucNang = new System.Windows.Forms.GroupBox();
+            this.txt_td_i = new System.Windows.Forms.TextBox();
+            this.lbl_td_i = new System.Windows.Forms.Label();
             this.cmbSpeed = new System.Windows.Forms.ComboBox();
+            this.lbl_td_j = new System.Windows.Forms.Label();
             this.lblSpeed = new System.Windows.Forms.Label();
+            this.txt_td_j = new System.Windows.Forms.TextBox();
             this.gBoxGhiChu = new System.Windows.Forms.GroupBox();
-            this.lblghichu2 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.lblghichu1 = new System.Windows.Forms.Label();
-            this.pic2 = new System.Windows.Forms.PictureBox();
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.btnLuuTru = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnNgung = new System.Windows.Forms.Button();
             this.btnBatDau = new System.Windows.Forms.Button();
             this.btnKhoiTao = new System.Windows.Forms.Button();
-            this.txt_td_j = new System.Windows.Forms.TextBox();
-            this.lbl_td_j = new System.Windows.Forms.Label();
-            this.txt_td_i = new System.Windows.Forms.TextBox();
-            this.lbl_td_i = new System.Windows.Forms.Label();
             this.txtnxn = new System.Windows.Forms.TextBox();
             this.lblnxn = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -81,7 +80,6 @@
             this.panel_TT.SuspendLayout();
             this.gBox_ChucNang.SuspendLayout();
             this.gBoxGhiChu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_ChiSo.SuspendLayout();
@@ -115,15 +113,15 @@
             // môPhỏngMãĐiTuầnToolStripMenuItem
             // 
             this.môPhỏngMãĐiTuầnToolStripMenuItem.Name = "môPhỏngMãĐiTuầnToolStripMenuItem";
-            this.môPhỏngMãĐiTuầnToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.môPhỏngMãĐiTuầnToolStripMenuItem.Text = "Mô phỏng mã đi tuần";
+            this.môPhỏngMãĐiTuầnToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.môPhỏngMãĐiTuầnToolStripMenuItem.Text = "Chế độ Máy chơi";
             this.môPhỏngMãĐiTuầnToolStripMenuItem.Click += new System.EventHandler(this.môPhỏngMãĐiTuầnToolStripMenuItem_Click);
             // 
             // chơiĐốiKhángToolStripMenuItem
             // 
             this.chơiĐốiKhángToolStripMenuItem.Name = "chơiĐốiKhángToolStripMenuItem";
-            this.chơiĐốiKhángToolStripMenuItem.Size = new System.Drawing.Size(248, 26);
-            this.chơiĐốiKhángToolStripMenuItem.Text = "Chơi Đối Kháng";
+            this.chơiĐốiKhángToolStripMenuItem.Size = new System.Drawing.Size(229, 26);
+            this.chơiĐốiKhángToolStripMenuItem.Text = "Chế độ Người chơi";
             this.chơiĐốiKhángToolStripMenuItem.Click += new System.EventHandler(this.chơiĐốiKhángToolStripMenuItem_Click);
             // 
             // luâtChơiToolStripMenuItem
@@ -154,18 +152,18 @@
             // 
             // gBox_ChucNang
             // 
+            this.gBox_ChucNang.Controls.Add(this.txt_td_i);
+            this.gBox_ChucNang.Controls.Add(this.lbl_td_i);
             this.gBox_ChucNang.Controls.Add(this.cmbSpeed);
+            this.gBox_ChucNang.Controls.Add(this.lbl_td_j);
             this.gBox_ChucNang.Controls.Add(this.lblSpeed);
+            this.gBox_ChucNang.Controls.Add(this.txt_td_j);
             this.gBox_ChucNang.Controls.Add(this.gBoxGhiChu);
             this.gBox_ChucNang.Controls.Add(this.btnLuuTru);
             this.gBox_ChucNang.Controls.Add(this.btnLamMoi);
             this.gBox_ChucNang.Controls.Add(this.btnNgung);
             this.gBox_ChucNang.Controls.Add(this.btnBatDau);
             this.gBox_ChucNang.Controls.Add(this.btnKhoiTao);
-            this.gBox_ChucNang.Controls.Add(this.txt_td_j);
-            this.gBox_ChucNang.Controls.Add(this.lbl_td_j);
-            this.gBox_ChucNang.Controls.Add(this.txt_td_i);
-            this.gBox_ChucNang.Controls.Add(this.lbl_td_i);
             this.gBox_ChucNang.Controls.Add(this.txtnxn);
             this.gBox_ChucNang.Controls.Add(this.lblnxn);
             this.gBox_ChucNang.Location = new System.Drawing.Point(10, 343);
@@ -174,6 +172,24 @@
             this.gBox_ChucNang.TabIndex = 2;
             this.gBox_ChucNang.TabStop = false;
             this.gBox_ChucNang.Text = "Menu Chức Năng:";
+            // 
+            // txt_td_i
+            // 
+            this.txt_td_i.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_td_i.Location = new System.Drawing.Point(7, 177);
+            this.txt_td_i.Name = "txt_td_i";
+            this.txt_td_i.Size = new System.Drawing.Size(125, 27);
+            this.txt_td_i.TabIndex = 3;
+            // 
+            // lbl_td_i
+            // 
+            this.lbl_td_i.AutoSize = true;
+            this.lbl_td_i.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_td_i.Location = new System.Drawing.Point(7, 154);
+            this.lbl_td_i.Name = "lbl_td_i";
+            this.lbl_td_i.Size = new System.Drawing.Size(113, 20);
+            this.lbl_td_i.TabIndex = 2;
+            this.lbl_td_i.Text = "Nhập tọa độ i:";
             // 
             // cmbSpeed
             // 
@@ -192,6 +208,16 @@
             this.cmbSpeed.TabIndex = 3;
             this.cmbSpeed.SelectedIndexChanged += new System.EventHandler(this.cmbSpeed_SelectedIndexChanged);
             // 
+            // lbl_td_j
+            // 
+            this.lbl_td_j.AutoSize = true;
+            this.lbl_td_j.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_td_j.Location = new System.Drawing.Point(190, 154);
+            this.lbl_td_j.Name = "lbl_td_j";
+            this.lbl_td_j.Size = new System.Drawing.Size(113, 20);
+            this.lbl_td_j.TabIndex = 4;
+            this.lbl_td_j.Text = "Nhập tọa độ j:";
+            // 
             // lblSpeed
             // 
             this.lblSpeed.AutoSize = true;
@@ -202,11 +228,18 @@
             this.lblSpeed.TabIndex = 3;
             this.lblSpeed.Text = "Tốc độ(Giây):";
             // 
+            // txt_td_j
+            // 
+            this.txt_td_j.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_td_j.Location = new System.Drawing.Point(190, 177);
+            this.txt_td_j.Name = "txt_td_j";
+            this.txt_td_j.Size = new System.Drawing.Size(125, 27);
+            this.txt_td_j.TabIndex = 5;
+            // 
             // gBoxGhiChu
             // 
-            this.gBoxGhiChu.Controls.Add(this.lblghichu2);
+            this.gBoxGhiChu.Controls.Add(this.lbl1);
             this.gBoxGhiChu.Controls.Add(this.lblghichu1);
-            this.gBoxGhiChu.Controls.Add(this.pic2);
             this.gBoxGhiChu.Controls.Add(this.pic1);
             this.gBoxGhiChu.Location = new System.Drawing.Point(10, 390);
             this.gBoxGhiChu.Name = "gBoxGhiChu";
@@ -215,15 +248,15 @@
             this.gBoxGhiChu.TabStop = false;
             this.gBoxGhiChu.Text = "Ghi Chú:";
             // 
-            // lblghichu2
+            // lbl1
             // 
-            this.lblghichu2.AutoSize = true;
-            this.lblghichu2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblghichu2.Location = new System.Drawing.Point(120, 143);
-            this.lblghichu2.Name = "lblghichu2";
-            this.lblghichu2.Size = new System.Drawing.Size(152, 20);
-            this.lblghichu2.TabIndex = 5;
-            this.lblghichu2.Text = "Bước đi tiếp theo";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Location = new System.Drawing.Point(45, 119);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(221, 40);
+            this.lbl1.TabIndex = 4;
+            this.lbl1.Text = "Máy phải đi hết bàn cờ \r\ntheo luật đi của quân mã.\r\n";
             // 
             // lblghichu1
             // 
@@ -231,19 +264,9 @@
             this.lblghichu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblghichu1.Location = new System.Drawing.Point(120, 47);
             this.lblghichu1.Name = "lblghichu1";
-            this.lblghichu1.Size = new System.Drawing.Size(141, 20);
+            this.lblghichu1.Size = new System.Drawing.Size(155, 20);
             this.lblghichu1.TabIndex = 3;
-            this.lblghichu1.Text = "Bước đi hiện tại";
-            // 
-            // pic2
-            // 
-            this.pic2.Image = global::MaDITuan.Properties.Resources.ma_xanh;
-            this.pic2.Location = new System.Drawing.Point(10, 116);
-            this.pic2.Name = "pic2";
-            this.pic2.Size = new System.Drawing.Size(88, 73);
-            this.pic2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic2.TabIndex = 4;
-            this.pic2.TabStop = false;
+            this.lblghichu1.Text = "Quân cờ của Máy";
             // 
             // pic1
             // 
@@ -307,49 +330,13 @@
             // 
             this.btnKhoiTao.BackColor = System.Drawing.Color.White;
             this.btnKhoiTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoiTao.Location = new System.Drawing.Point(6, 168);
+            this.btnKhoiTao.Location = new System.Drawing.Point(6, 106);
             this.btnKhoiTao.Name = "btnKhoiTao";
             this.btnKhoiTao.Size = new System.Drawing.Size(320, 35);
             this.btnKhoiTao.TabIndex = 6;
             this.btnKhoiTao.Text = "Khởi Tạo";
             this.btnKhoiTao.UseVisualStyleBackColor = false;
             this.btnKhoiTao.Click += new System.EventHandler(this.btnKhoiTao_Click);
-            // 
-            // txt_td_j
-            // 
-            this.txt_td_j.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_td_j.Location = new System.Drawing.Point(189, 116);
-            this.txt_td_j.Name = "txt_td_j";
-            this.txt_td_j.Size = new System.Drawing.Size(125, 27);
-            this.txt_td_j.TabIndex = 5;
-            // 
-            // lbl_td_j
-            // 
-            this.lbl_td_j.AutoSize = true;
-            this.lbl_td_j.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_td_j.Location = new System.Drawing.Point(189, 93);
-            this.lbl_td_j.Name = "lbl_td_j";
-            this.lbl_td_j.Size = new System.Drawing.Size(113, 20);
-            this.lbl_td_j.TabIndex = 4;
-            this.lbl_td_j.Text = "Nhập tọa độ j:";
-            // 
-            // txt_td_i
-            // 
-            this.txt_td_i.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_td_i.Location = new System.Drawing.Point(6, 116);
-            this.txt_td_i.Name = "txt_td_i";
-            this.txt_td_i.Size = new System.Drawing.Size(125, 27);
-            this.txt_td_i.TabIndex = 3;
-            // 
-            // lbl_td_i
-            // 
-            this.lbl_td_i.AutoSize = true;
-            this.lbl_td_i.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_td_i.Location = new System.Drawing.Point(6, 93);
-            this.lbl_td_i.Name = "lbl_td_i";
-            this.lbl_td_i.Size = new System.Drawing.Size(113, 20);
-            this.lbl_td_i.TabIndex = 2;
-            this.lbl_td_i.Text = "Nhập tọa độ i:";
             // 
             // txtnxn
             // 
@@ -382,13 +369,13 @@
             // lblHeading
             // 
             this.lblHeading.AutoSize = true;
-            this.lblHeading.Font = new System.Drawing.Font("Ravie", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.Color.MediumBlue;
             this.lblHeading.Location = new System.Drawing.Point(20, 19);
             this.lblHeading.Name = "lblHeading";
-            this.lblHeading.Size = new System.Drawing.Size(326, 54);
+            this.lblHeading.Size = new System.Drawing.Size(324, 38);
             this.lblHeading.TabIndex = 0;
-            this.lblHeading.Text = "Mã Đi Tuần";
+            this.lblHeading.Text = "Chế Độ Máy Chơi";
             // 
             // panel_BanCo
             // 
@@ -434,9 +421,9 @@
             this.gBoxTT.Controls.Add(this.lbl_Text_BanCo);
             this.gBoxTT.Controls.Add(this.lblBanCo);
             this.gBoxTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxTT.Location = new System.Drawing.Point(3, 2);
+            this.gBoxTT.Location = new System.Drawing.Point(0, 2);
             this.gBoxTT.Name = "gBoxTT";
-            this.gBoxTT.Size = new System.Drawing.Size(500, 1018);
+            this.gBoxTT.Size = new System.Drawing.Size(503, 1018);
             this.gBoxTT.TabIndex = 0;
             this.gBoxTT.TabStop = false;
             this.gBoxTT.Text = "Thông tin hành trình";
@@ -607,7 +594,6 @@
             this.gBox_ChucNang.PerformLayout();
             this.gBoxGhiChu.ResumeLayout(false);
             this.gBoxGhiChu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_ChiSo.ResumeLayout(false);
@@ -639,9 +625,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.GroupBox gBoxGhiChu;
-        private System.Windows.Forms.Label lblghichu2;
         private System.Windows.Forms.Label lblghichu1;
-        private System.Windows.Forms.PictureBox pic2;
         private System.Windows.Forms.PictureBox pic1;
         private System.Windows.Forms.Button btnLuuTru;
         private System.Windows.Forms.Button btnLamMoi;
@@ -668,5 +652,6 @@
         private System.Windows.Forms.FlowLayoutPanel panel_cactoado;
         private System.Windows.Forms.Label lbl_Text_Kq;
         private System.Windows.Forms.Label lbl_Ketqua;
+        private System.Windows.Forms.Label lbl1;
     }
 }

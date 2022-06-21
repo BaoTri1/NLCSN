@@ -24,12 +24,13 @@ namespace MaDITuan
         const String BOT_NEXTLOCATION = "Bot_NextLocation";
         const String PLAYER = "Player";
 
-        private int[] toadoX;
+        private String[] toadoX;
         private int[] toadoY;
 
+        
         private int x, y, n, speed = 0, count = 0;
 
-        private int x_lui, y_lui;
+        private int buocdi, x_lui, y_lui;
 
         public frm_MPmadituan()
         {
@@ -64,21 +65,10 @@ namespace MaDITuan
 
         private void btnKhoiTao_Click(object sender, EventArgs e)
         {
-            if(txtnxn.Text == "" || txt_td_i.Text == "" || txt_td_j.Text == "")
+            if(txtnxn.Text == "")
             {
-                MessageBox.Show("Các trường nhập không được bỏ trống!!!.", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
-                if(txtnxn.Text == "")
-                {
-                    txtnxn.Focus();
-                }
-                else if(txt_td_i.Text == "")
-                {
-                    txt_td_i.Focus();
-                }
-                else
-                {
-                    txt_td_j.Focus();
-                }
+                MessageBox.Show("Chưa nhập n!!!.", "Thông Báo", MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                txtnxn.Focus();
             }
             else
             {
@@ -88,64 +78,73 @@ namespace MaDITuan
 
                     if(n >= 4 && n <= 10)
                     {
-                        
-                        try
-                        {
-                            this.x = Convert.ToInt32(txt_td_i.Text);
-                            this.y = Convert.ToInt32(txt_td_j.Text);
 
-                            if(x >= 0 && x < n && y >= 0 && y < n)
-                            {
-                                
-                                knighttrip = new KnightTrip(n);
+                        knighttrip = new KnightTrip(n);
 
-                                //Vẽ bàn cờ nxn
-                                knighttrip.Ve_BanCo(panel_BanCo);
+                        //Vẽ bàn cờ nxn
+                        knighttrip.Ve_BanCo(panel_BanCo);
 
-                                //Vẽ quân mã tại vị trí (x, y)
-                                knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x, y].getO_Co(), BOT);
+                        btnBatDau.Enabled = true;
+                        btnLamMoi.Enabled = true;
+                        btnKhoiTao.Enabled = false;
 
-                                //Xet bước đi ưu tiên của (x, y)
-                                knighttrip.PriorityMove(x, y);
+                        /*                       try
+                                               {
+                                                   this.x = chuyendoi_so(txt_td_i.Text);
+                                                   this.y = Convert.ToInt32(txt_td_j.Text) - 1;
 
-                                //Vẽ quân mã tại vị trí ưu tiên
-                                knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT_NEXTLOCATION);
+                                                   if(x >= 0 && x < n && y >= 0 && y < n)
+                                                   {
 
-                                btnBatDau.Enabled = true;
-                                btnLamMoi.Enabled = true;
-                                btnKhoiTao.Enabled = false;
+                                                       knighttrip = new KnightTrip(n);
 
-                                playSound(sound_readyGo);
+                                                       //Vẽ bàn cờ nxn
+                                                       knighttrip.Ve_BanCo(panel_BanCo);
 
-                                this.toadoX = new int[this.n * this.n];
-                                this.toadoY = new int[this.n * this.n];
+                                                       //Vẽ quân mã tại vị trí (x, y)
+                                                       knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x, y].getO_Co(), BOT);
 
-                                for(int i = 0; i < this.n * this.n; i++)
-                                {
-                                    this.toadoX[i] = -1;
-                                    this.toadoY[i] = -1;
-                                }
+                                                       //Xet bước đi ưu tiên của (x, y)
+                                                       knighttrip.PriorityMove(x, y);
 
-                                lbl_Text_BanCo.Text = Convert.ToString(this.n) + " x " + Convert.ToString(this.n);
-                                lbl_Text_TongSoO.Text = Convert.ToString(this.n * this.n);
-                                lbl_Text_ToaDoI.Text = txt_td_i.Text;
-                                lbl_Text_ToaDoJ.Text = txt_td_j.Text;
+                                                       //Vẽ quân mã tại vị trí ưu tiên
+                                                       knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT_NEXTLOCATION);
+
+                                                       btnBatDau.Enabled = true;
+                                                       btnLamMoi.Enabled = true;
+                                                       btnKhoiTao.Enabled = false;
+
+                                                       playSound(sound_readyGo);
+
+                                                       this.toadoX = new String[this.n * this.n];
+                                                       this.toadoY = new int[this.n * this.n];
+
+                                                       for(int i = 0; i < this.n * this.n; i++)
+                                                       {
+                                                           this.toadoX[i] = null;
+                                                           this.toadoY[i] = -1;
+                                                       }
+
+                                                       lbl_Text_BanCo.Text = Convert.ToString(this.n) + " x " + Convert.ToString(this.n);
+                                                       lbl_Text_TongSoO.Text = Convert.ToString(this.n * this.n);
+                                                       lbl_Text_ToaDoI.Text = txt_td_i.Text;
+                                                       lbl_Text_ToaDoJ.Text = txt_td_j.Text;
 
 
-                            }
-                            else
-                            {
-                                MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. 0 <= i, j < ." + txtnxn.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                                                   }
+                                                   else
+                                                   {
+                                                       MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. 0 <= i, j < ." + txtnxn.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-                            }
+                                                   }
 
 
-                        }
-                        catch (Exception ex)
-                        {
-                            MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i và j phải là số nguyên.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                               }
+                                               catch (Exception ex)
+                                               {
+                                                   MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i và j phải là số nguyên.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                        }
+                                               }*/
                     }
                     else
                     {
@@ -163,11 +162,23 @@ namespace MaDITuan
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (knighttrip.duyetchienthang())
+            int x = knighttrip.getDD_X()[this.buocdi];
+            int y = knighttrip.getDD_Y()[this.buocdi];
+
+            knighttrip.Clear(knighttrip.getbanco().getMang()[x, y].getO_Co());
+            knighttrip.getbanco().getMang()[x, y].getO_Co().Invalidate();
+            knighttrip.Ve_goal(knighttrip.getbanco().getMang()[x, y].getO_Co(), this.buocdi);
+
+
+            this.toadoX[this.count] = chuyendoi_chu(x);
+            this.toadoY[this.count] = y;
+            this.count++;
+
+            if (this.buocdi == this.n * this.n)
             {
                 timer1.Enabled = false;
                 DialogResult result = MessageBox.Show("Đã hoàn thành hành trình đi tuần của quân MÃ. ", "Chúc mừng Bạn!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if(result == DialogResult.OK)
+                if (result == DialogResult.OK)
                 {
                     soundplayer.Stop();
                     playSound(sound_wait);
@@ -178,64 +189,85 @@ namespace MaDITuan
                     lbl_Text_Kq.Text = "Đã hoàn thành.";
                     in_toado();
                 }
-
             }
             else
             {
-                //Vẽ kết quả số bước đi lên ô đã đi qua
-                knighttrip.Ve_goal(knighttrip.getbanco().getMang()[x, y].getO_Co());
+                this.buocdi++;
 
-                this.toadoX[this.count] = x;
-                this.toadoY[this.count] = y;
-                this.count++;
+                int x_next = knighttrip.getDD_X()[this.buocdi];
+                int y_next = knighttrip.getDD_Y()[this.buocdi];
 
-                //Đánh dấu ô đã đi qua rồi
-                knighttrip.getbanco().getMang()[x, y].Check = 1;
+                knighttrip.getbanco().getMang()[x_next, y_next].getO_Co().Invalidate();
 
-                //Lấy điểm ưu tiên tiếp theo của (x, y)
-                if (knighttrip.PriorityMove(x, y) == 0 && knighttrip.getGoal() < this.n * this.n)
-                {
-                    timer1.Enabled = false;
-                    DialogResult result = MessageBox.Show("Đã hết đường tiến hành quay lui. ", "Đã hết đường đi!!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    if (result == DialogResult.OK)
-                    {
-                        timer2.Enabled = true;
-
-                    }
-                }
-                else
-                {
-                    this.x_lui = this.x;
-                    this.y_lui = this.y;
-
-                    this.x = knighttrip.X_priorities;
-                    this.y = knighttrip.Y_priorities;
-
-                    //MessageBox.Show(Convert.ToString(x) + Convert.ToString(y));
-
-                    if (knighttrip.getGoal() < n * n - 1)
-                    {
-                        //Xóa quân cờ ở điểm ưu tiên
-                        knighttrip.Clear(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co());
-
-                        //Gọi Invalidate(); để vẽ lại ô cờ
-                        knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co().Invalidate();
-
-                        //Vẽ quân cờ lên điểm ưu tiên thể hiển quân cờ đã đi đến điểm ưu tiên;
-                        knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT);
-
-                        //Lấy điểm ưu tiên tiếp theo dựa trên điểm ưu tiên ban đầu
-                        if(knighttrip.PriorityMove(knighttrip.X_priorities, knighttrip.Y_priorities) == 1 && knighttrip.getGoal() < this.n * this.n)
-                        {
-                            knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co().Invalidate();
-
-                            //Vẽ quân cờ thể hiện quân mã sẽ được ưu tiên đi cho bước tiếp theo
-                            knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT_NEXTLOCATION);
-                        }
-                    }
-                }
-                
+                knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x_next, y_next].getO_Co(), BOT);
             }
+
+
+
+            /*           if (knighttrip.duyetchienthang())
+                       {
+                           timer1.Enabled = false;
+                           DialogResult result = MessageBox.Show("Đã hoàn thành hành trình đi tuần của quân MÃ. ", "Chúc mừng Bạn!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                           if(result == DialogResult.OK)
+                           {
+                               soundplayer.Stop();
+                               playSound(sound_wait);
+
+                               btnLuuTru.Enabled = true;
+
+                               lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
+                               lbl_Text_Kq.Text = "Đã hoàn thành.";
+                               in_toado();
+                           }
+
+                       }
+                       else
+                       {
+                           //Vẽ kết quả số bước đi lên ô đã đi qua
+                           knighttrip.Ve_goal(knighttrip.getbanco().getMang()[x, y].getO_Co());
+
+                           this.toadoX[this.count] = chuyendoi_chu(x);
+                           this.toadoY[this.count] = y;
+                           this.count++;
+
+                           //Đánh dấu ô đã đi qua rồi
+                           knighttrip.getbanco().getMang()[x, y].Check = 1;
+
+                           //Lấy điểm ưu tiên tiếp theo của (x, y)
+                           if (knighttrip.PriorityMove(x, y) == 0 && knighttrip.getGoal() < this.n * this.n)
+                           {
+                               timer1.Enabled = false;
+                               DialogResult result = MessageBox.Show("Đã hết đường tiến hành quay lui. ", "Đã hết đường đi!!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                               if (result == DialogResult.OK)
+                               {
+                                   timer2.Enabled = true;
+
+                               }
+                           }
+                           else
+                           {
+                               this.x_lui = this.x;
+                               this.y_lui = this.y;
+
+                               this.x = knighttrip.X_priorities;
+                               this.y = knighttrip.Y_priorities;
+
+                               //MessageBox.Show(Convert.ToString(x) + Convert.ToString(y));
+
+                               if (knighttrip.getGoal() < n * n - 1)
+                               {
+                                   //Xóa quân cờ ở điểm ưu tiên
+                                   knighttrip.Clear(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co());
+
+                                   //Gọi Invalidate(); để vẽ lại ô cờ
+                                   knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co().Invalidate();
+
+                                   //Vẽ quân cờ lên điểm ưu tiên thể hiển quân cờ đã đi đến điểm ưu tiên;
+                                   knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT);
+                               }
+                           }
+
+                       } */
         }
 
         private void btnNgung_Click(object sender, EventArgs e)
@@ -258,7 +290,7 @@ namespace MaDITuan
 
             knighttrip.getbanco().getMang()[this.x, this.y].Check = 0;
 
-            this.toadoX[count] = -1;
+            this.toadoX[count] = null;
             this.toadoY[count] = -1;
 
             this.count--;
@@ -297,9 +329,6 @@ namespace MaDITuan
 
                 knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT);
 
-                knighttrip.PriorityMove(knighttrip.X_priorities, knighttrip.Y_priorities);
-
-                knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT_NEXTLOCATION); 
 
                 timer2.Enabled = false;
 
@@ -354,20 +383,63 @@ namespace MaDITuan
 
         private void btnBatDau_Click(object sender, EventArgs e)
         {
-            //Tắt nhạc chờ
-            soundplayer.Stop();
 
-            //Tạo âm thanh mới;            
-            playSound(sound_toplay);
+            try
+            {
+                this.x = chuyendoi_so(txt_td_i.Text);
+                this.y = Convert.ToInt32(txt_td_j.Text) - 1;
 
-            //Gọi thuật toán bắt đầu đi 
+                if (x >= 0 && x < n && y >= 0 && y < n)
+                {
+                    knighttrip.getbanco().getMang()[x, y].getO_Co().Invalidate();
+                    //Vẽ quân mã tại vị trí (x, y)
+                    knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x, y].getO_Co(), BOT);
 
-            timer1.Enabled = true;
+                    //Tạo đường đi
+                    knighttrip.madituan(this.x, this.y);
 
-            btnNgung.Enabled = true;
-            btnLuuTru.Enabled = true;
-            btnBatDau.Enabled = false;
+                    this.buocdi = 1;
 
+                    this.toadoX = new String[this.n * this.n];
+                    this.toadoY = new int[this.n * this.n];
+
+                    for (int i = 0; i < this.n * this.n; i++)
+                    {
+                        this.toadoX[i] = null;
+                        this.toadoY[i] = -1;
+                    }
+
+                    lbl_Text_BanCo.Text = Convert.ToString(this.n) + " x " + Convert.ToString(this.n);
+                    lbl_Text_TongSoO.Text = Convert.ToString(this.n * this.n);
+                    lbl_Text_ToaDoI.Text = txt_td_i.Text;
+                    lbl_Text_ToaDoJ.Text = txt_td_j.Text;
+
+                    //Tắt nhạc chờ
+                    soundplayer.Stop();
+
+                    //Tạo âm thanh mới;            
+                    playSound(sound_toplay);
+
+                    //Gọi thuật toán bắt đầu đi 
+
+                    timer1.Enabled = true;
+
+                    btnNgung.Enabled = true;
+                    btnLuuTru.Enabled = true;
+                    btnBatDau.Enabled = false;
+
+                }
+                else
+                {
+                    MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. 0 <= i, j < ." + txtnxn.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i và j phải là số nguyên.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -419,11 +491,11 @@ namespace MaDITuan
         {
             for(int i = 0; i < this.n * this.n; i++)
             {
-                if(this.toadoX[i] != -1 && this.toadoY[i] != -1)
+                if(this.toadoX[i] != null && this.toadoY[i] != -1)
                 {
                     Label lbl = new Label();
                     {
-                        lbl.Text = "Buoc " + (i + 1) + ": (" + this.toadoX[i] + ", " + this.toadoY[i] + "), ";
+                        lbl.Text = "Buoc " + (i + 1) + ": (" + this.toadoX[i] + ", " + (this.toadoY[i] + 1) + "), ";
                         Font font = new Font("Microsoft Sans Serif", 9);
                         lbl.Font = font;
                         lbl.ForeColor = Color.Blue;
@@ -432,6 +504,95 @@ namespace MaDITuan
                     panel_cactoado.Controls.Add(lbl);
                 }
             }
+        }
+
+        public String  chuyendoi_chu(int n)
+        {
+            if (n == 0)
+            {
+                return "A";
+            }
+            else if (n == 1)
+            {
+                return "B";
+            }
+            else if (n == 2)
+            {
+                return "C";
+            }
+            else if (n == 3)
+            {
+                return "D";
+            }
+            else if (n == 4)
+            {
+                return "E";
+            }
+            else if (n == 5)
+            {
+                return "F";
+            }
+            else if (n == 6)
+            {
+                return "G";
+            }
+            else if (n == 7)
+            {
+                return "H";
+            }
+            else if (n == 8)
+            {
+                return "I";
+            }
+            else if (n == 9)
+            {
+                return "J";
+            }
+            else return null;
+        }
+        public int chuyendoi_so(String str)
+        {
+            if (str == "A")
+            {
+                return 0;
+            }
+            else if (str == "B")
+            {
+                return 1;
+            }
+            else if (str == "C")
+            {
+                return 2;
+            }
+            else if (str == "D")
+            {
+                return 3;
+            }
+            else if (str == "E")
+            {
+                return 4;
+            }
+            else if (str == "F")
+            {
+                return 5;
+            }
+            else if (str == "G")
+            {
+                return 6;
+            }
+            else if (str == "H")
+            {
+                return 7;
+            }
+            else if (str == "I")
+            {
+                return 8;
+            }
+            else if (str == "J")
+            {
+                return 9;
+            }
+            else return -1;
         }
     }
 }

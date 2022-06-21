@@ -22,10 +22,13 @@ namespace MaDITuan
 
         const String BOT = "Bot";
         const String BOT_NEXTLOCATION = "Bot_NextLocation";
-        const String PLAYER = "Player";
 
-        private int x_priorities_tmp;
-        private int y_priorities_tmp;
+        private int[] STT_hang = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        private String[] STT_cot = new string[10] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
+
+        private int[] dd_X;
+        private int[] dd_Y;
+        private Boolean win;
 
         public int X_priorities
         {
@@ -39,17 +42,6 @@ namespace MaDITuan
             set => y_priorities = value;
         }
 
-        public int X_priorities_tmp 
-        { 
-            get => x_priorities_tmp; 
-            set => x_priorities_tmp = value; 
-        }
-
-        public int Y_priorities_tmp 
-        { 
-            get => y_priorities_tmp; 
-            set => y_priorities_tmp = value; 
-        }
         public int So_o 
         { 
             get => so_o; 
@@ -59,8 +51,18 @@ namespace MaDITuan
         public KnightTrip(int so_oco)
         {
             this.So_o = so_oco;
-            this.goal = 0;
 
+            this.goal = 1;
+
+            dd_X = new int[200];
+
+            dd_Y = new int[200];
+
+            for(int i = 0; i < 200; i++)
+            {
+                dd_X[i] = -1;
+                dd_Y[i] = -1;
+            }
 
             //Tạo mảng các ô cờ
             banco = new Ban_Co(So_o);
@@ -71,6 +73,16 @@ namespace MaDITuan
             //Tạo mảng các phần tử cộng vào i
             col = new int[8] { -2, -1, 1, 2, 2, 1, -1, -2 };
 
+        }
+
+        public int[] getDD_X()
+        {
+            return dd_X;
+        }
+
+        public int[] getDD_Y()
+        {
+            return dd_Y;
         }
 
         public Ban_Co getbanco()
@@ -99,10 +111,44 @@ namespace MaDITuan
 
         public void Ve_BanCo(Panel panel)
         {
-            int X = 0, Y = 0, KC = 0;
+            int x_lbl = 70, y_lbl = 0, kc_lbl = 0;
+
+            for(int i = 0; i < banco.getMang().GetLength(1); i++)
+            {
+                Label lbl = new Label();
+                {
+                    lbl.Text = Convert.ToString(STT_hang[i]);
+                    lbl.Font = new Font("Segoe Script", 20);
+                    lbl.ForeColor = Color.Aqua;
+                    lbl.Width = 60;
+                    lbl.Height = 60;
+                    lbl.Location = new Point(x_lbl + kc_lbl, y_lbl);
+                }
+                panel.Controls.Add(lbl);
+                x_lbl = lbl.Location.X;
+                y_lbl = lbl.Location.Y;
+                kc_lbl = lbl.Width + 10;
+            }
+
+            x_lbl = 0;
+            y_lbl = 70;
+
+            int X = 60, Y = 60, KC = 0;
 
             for (int i = 0; i < banco.getMang().GetLength(0); i++)
             {
+                Label lbl = new Label();
+                {
+                    lbl.Text = STT_cot[i];
+                    lbl.Font = new Font("Segoe Script", 20);
+                    lbl.ForeColor = Color.Aqua;
+                    lbl.Width = 60;
+                    lbl.Height = 60;
+                    lbl.Location = new Point(x_lbl, y_lbl);
+                }
+                panel.Controls.Add(lbl);
+                y_lbl += lbl.Height + 12;
+
                 for (int j = 0; j < banco.getMang().GetLength(1); j++)
                 {
                     PictureBox tmpPic = banco.getMang()[i, j].getO_Co();
@@ -115,7 +161,7 @@ namespace MaDITuan
                     Y = tmpPic.Location.Y;
                     KC = tmpPic.Width;
                 }
-                X = 0;
+                X = 60;
                 Y += O_Co.height;
                 KC = 0;
             }
@@ -125,93 +171,79 @@ namespace MaDITuan
         {
             if (nameChess == "Bot")
                 pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.PaintChess1_Event);
-            else if (nameChess == "Bot_NextLocation")
-                pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.PaintChess2_Event);
             else if (nameChess == "Player")
                 pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.PaintChess3_Event);
         }
 
-    /*    public void madituan(int x, int y)
+        public void madituan(int x, int y)
         {
-                        MessageBox.Show("");
-            Ve_goal(banco.getMang()[x, y].getO_Co());
             banco.getMang()[x, y].Check = 1;
+
+            dd_X[goal] = x;
+            dd_Y[goal] = y;
 
             if (duyetchienthang())
             {
-                return;
+                this.win = true;
             }
             else
             {
-                int flag = PriorityMove(x, y);
-                if (flag == 1)
-                {
-                    X_priorities_tmp = x_priorities;
-                    Y_priorities_tmp = y_priorities;
-                                        MessageBox.Show("");
-
-                    banco.getMang()[X_priorities_tmp, Y_priorities_tmp].getO_Co().Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.Clear_Chess);
-                                        MessageBox.Show("");
-
-                    banco.getMang()[X_priorities_tmp, Y_priorities_tmp].getO_Co().Invalidate();
-                    Ve_quanco(banco.getMang()[X_priorities_tmp, Y_priorities_tmp].getO_Co(), BOT);
-
-                    PriorityMove(X_priorities_tmp, Y_priorities_tmp);
-                                       MessageBox.Show("");
-
-                    banco.getMang()[x_priorities, y_priorities].getO_Co().Invalidate();
-                    Ve_quanco(banco.getMang()[x_priorities, y_priorities].getO_Co(), BOT_NEXTLOCATION);
-
-                    madituan(X_priorities_tmp, Y_priorities_tmp);
-                }
-                else
-                {
-                    banco.getMang()[x, y].Check = 0;
-                                       MessageBox.Show("");
-
-                    banco.getMang()[x, y].getO_Co().Controls.Clear();
-                    this.goal--;
-                    return;
-                }
-
-                int x1 = x_priorities_tmp;
-                int y1 = y_priorities_tmp;
+                NuocDi[] LuaChon = new NuocDi[8];
+                int so_nd = 0;
 
                 for (int i = 0; i < 8; i++)
                 {
                     int x_tmp = x + col[i];
                     int y_tmp = y + row[i];
-                    if (x_tmp == x1 && y_tmp == y1)
-                        continue;
-                    if (x_tmp >= 0 && x_tmp < this.so_o && y_tmp >= 0 && y_tmp < this.so_o && banco.getMang()[x_tmp, y_tmp].Check == 0)
+                    if (x_tmp < this.so_o && x_tmp >= 0 && y_tmp < this.so_o && y_tmp >= 0 && banco.getMang()[x_tmp, y_tmp].Check == 0)
                     {
-                        banco.getMang()[x_tmp, y_tmp].getO_Co().Invalidate();
-                                               MessageBox.Show("");
+                        NuocDi tmp = new NuocDi(CountMove(x_tmp, y_tmp), x_tmp, y_tmp);
+                        LuaChon[so_nd] = tmp;
+                        so_nd++;
 
-                        Ve_quanco(banco.getMang()[x_tmp, y_tmp].getO_Co(), BOT);
-
-                        PriorityMove(x_tmp, y_tmp);
-                                               MessageBox.Show("");
-
-                        banco.getMang()[x_priorities, y_priorities].getO_Co().Invalidate();
-                        Ve_quanco(banco.getMang()[x_priorities, y_priorities].getO_Co(), BOT_NEXTLOCATION);
-
-                        madituan(x_tmp, y_tmp);
                     }
                 }
+
+                if (so_nd > 0)
+                {
+                    for (int i = 0; i < so_nd - 1; i++)
+                    {
+                        for (int j = i + 1; j < so_nd; j++)
+                        {
+                            if (LuaChon[i].So_nd > LuaChon[j].So_nd)
+                            {
+                                NuocDi tmp = LuaChon[i];
+                                LuaChon[i] = LuaChon[j];
+                                LuaChon[j] = tmp;
+
+                            }
+                        }
+                    }
+                }
+
+                for (int i = 0; i < so_nd && !this.win; i++)
+                {
+                    this.goal++;
+                    madituan(LuaChon[i].X, LuaChon[i].Y);
+                    banco.getMang()[LuaChon[i].X, LuaChon[i].Y].Check = 0;
+                    if (win != true)
+                    {
+                        this.goal--;
+                    }
+
+                }
             }
+        } 
 
-        } */
-
-        public void Ve_goal(PictureBox pic)
+        public void Ve_goal(PictureBox pic, int goal)
         {
-            this.goal++;
+   //         this.goal++;
             pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.Clear_Chess);
             pic.Invalidate();
 
             Label lbl = new Label();
             {
-                lbl.Text = Convert.ToString(this.goal);
+                lbl.Text = Convert.ToString(goal);
                 lbl.Font = new Font("Segoe Script", 20);
                 lbl.ForeColor = Color.Red;
                 lbl.Width = 80;

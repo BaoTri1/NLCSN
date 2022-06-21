@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,39 +16,53 @@ namespace MaDITuan
         private System.Media.SoundPlayer soundplayer;
         private String sound_wait = Application.StartupPath + "\\Music\\action-110116.wav";
         private String sound_toplay = Application.StartupPath + "\\Music\\let-the-games-begin-21858.wav";
-        private String sound_readyGo = Application.StartupPath + "\\Music\\y2mate.com-Ready-Go-Memes.wav";
 
-        const String BOT = "Bot";
         const String PLAYER = "Player";
 
         private FightingGame game;
 
-        private static Boolean action;
-
-        private int n;
+        private int n = 0;
 
         private static String namePlayer;
 
-        public static bool Action 
-        { 
-            get => action; 
-            set => action = value; 
-        }
+        private  static Boolean Stop;
+
+        private SqlConnection conn;
+
+        private SqlCommand cmd;
+
+        Decimal kq_tmp = 0;
 
         public static string NamePlayer { 
             get => namePlayer; 
             set => namePlayer = value; 
         }
 
+        public static bool Stop1 {
+            get => Stop;
+            set => Stop = value; 
+        }
+
         public frm_FightingGame()
         {
             InitializeComponent();
-            action = false;
+            Stop1 = true; 
         }
 
         private void frm_FightingGame_Load(object sender, EventArgs e)
         {
             playSound(sound_wait);
+
+            try
+            {
+                conn = new SqlConnection("Server = MSI\\SQLEXPRESS; Initial Catalog = GameMDT; User Id = sa; pwd = 123456");
+                cmd = new SqlCommand("Select * from KiLuc;", conn);
+                conn.Open();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
 
             btnLamMoi.Enabled = false;
 
@@ -68,72 +83,108 @@ namespace MaDITuan
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+            conn.Close();
         }
 
         private void btnKhoiTao_Click(object sender, EventArgs e)
         {
-            if(cmbBanCo.Text == "")
+            if (cmbBanCo.Text == "")
             {
-                DialogResult = MessageBox.Show("Bạn phải chọn bàn cờ để bắt đầu tạo ván chơi.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Bạn phải chọn bàn cờ để bắt đầu tạo ván chơi.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else if(cmbBanCo.Text == "8 x 8")
+            else if (cmbBanCo.Text == "8 x 8")
             {
-                soundplayer.Stop();
-
-                playSound(sound_toplay);
-
                 this.n = 8;
-                game = new FightingGame(this.n);
-                game.Ve_BanCo(panel_BanCo);
-                game.add_actionClick();
-                game.setup(lbl_goal_May, lbl_goal_Player, txt_Name, txt_Diem, txt_QuayLui, proBarCoolDown, picHoanDoi, panel_BanCo, lblKQ);
-
-                if (txtName.Text == "")
-                {
-                    NamePlayer = "Player";
-                }
-                else
-                {
-                    NamePlayer = txtName.Text;
-                }
-
-                DialogResult r = MessageBox.Show("Bạn có muốn đi trước không?", "Thông Báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if(r == DialogResult.No)
-                {
-                    action = true;
-                    picHoanDoi.Invalidate();
-                    picHoanDoi.Image = new Bitmap(Application.StartupPath + "\\Img\\ma_do.png");
-                    txt_Name.Text = "Knight Dart";
-                    txt_Diem.Text = Convert.ToString(game.getGoal_bot());
-                    txt_QuayLui.Text = Convert.ToString(game.getBack_bot());
-                    proBarCoolDown.Value = 0;
-                    panel_BanCo.Enabled = true;
-
-                }
-                else
-                {
-                    picHoanDoi.Invalidate();
-                    picHoanDoi.Image = new Bitmap(Application.StartupPath + "\\Img\\ma_xanh.png");
-                    txt_Name.Text = NamePlayer;
-                    txt_Diem.Text = Convert.ToString(game.getGoal_user());
-                    txt_QuayLui.Text = Convert.ToString(game.getBack_user());
-                    proBarCoolDown.Value = 0;
-                }
-
-                timer1.Start();
-
-                timer2.Start();
-
-                btnLamMoi.Enabled = true;
-                btnKhoiTao.Enabled = false;
-
+            }
+            else if (cmbBanCo.Text == "5 x 5")
+            {
+                this.n = 5;
+            }
+            else if (cmbBanCo.Text == "10 x 10")
+            {
+                this.n = 10;
             }
 
+            if (txtName.Text == "")
+            {
+                MessageBox.Show("Tên Người chơi không được để trống!!!.", "Cảnh Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                NamePlayer = txtName.Text;
+                int flag = 0;
+
+                try
+                {
+                    cmd = new SqlCommand("Select * from Times where Name = N'" + NamePlayer + "';", conn);
+                    SqlDataReader dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {
+                        if (dr.GetString(2) == cmbBanCo.Text)
+                        {
+                            kq_tmp = dr.GetDecimal(1);
+                            int a = (int)(kq_tmp) / 60;
+                            int b = (int)(kq_tmp) % 60;
+                            if (b < 10)
+                            {
+                                lbl_Giay_KL.Text = "0" + b;
+                            }
+                            else
+                            {
+                                lbl_Giay_KL.Text = Convert.ToString(b);
+                            }
+
+                            if (a < 10)
+                            {
+                                lbl_Phut_KL.Text = "0" + a;
+                            }
+                            else
+                            {
+                                lbl_Phut_KL.Text = Convert.ToString(a);
+                            }
+
+                            flag = 1;
+                        }
+                    }
+                    dr.Close();
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message + ex.StackTrace);
+                }
+
+                if(flag == 0)
+                {
+                    lbl_Phut_KL.Text = "00";
+                    lbl_Giay_KL.Text = "00";
+                }
+
+                if (n != 0)
+                {
+                    soundplayer.Stop();
+
+                    playSound(sound_toplay);
+
+                    game = new FightingGame(this.n);
+                    game.Ve_BanCo(panel_BanCo);
+                    game.add_actionClick();
+                    game.setup(txt_Diem, lblKQ);
+
+                    txt_Name.Text = NamePlayer;
+
+                    timer1.Start();
+
+                    btnLamMoi.Enabled = true;
+                    btnKhoiTao.Enabled = false;
+                }
+            }
         }
 
         private void môPhỏngMãĐiTuầnToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+            conn.Close();
             frm_MPmadituan mophong = new frm_MPmadituan();
             mophong.ShowDialog();
         }
@@ -145,7 +196,6 @@ namespace MaDITuan
             soundplayer.Stop();
 
             timer1.Stop();
-            timer2.Stop();
 
             playSound(sound_wait);
 
@@ -153,81 +203,115 @@ namespace MaDITuan
             txtName.Text = "";
             txt_Name.Text = "";
             txt_Diem.Text = "";
-            txt_QuayLui.Text = "";
             cmbBanCo.Text = "";
+            lblPhut.Text = "00";
+            lblGiay.Text = "00";
 
-            picHoanDoi.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.Clear_Chess);
-            picHoanDoi.Invalidate();
+            lbl_Phut_KL.Text = "00";
+            lbl_Giay_KL.Text = "00";
 
             lblKQ.Text = "Chưa có kết quả";
-            lblKQ.ForeColor = Color.Black;
-
-            lbl_goal_May.Text = "x0";
-            lbl_goal_Player.Text = "x0";
-
-            proBarCoolDown.Value = 0;
-
 
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            proBarCoolDown.PerformStep();
+            if(Stop1 != false)
+            {
+                int giay = Convert.ToInt32(lblGiay.Text);
+                int phut = Convert.ToInt32(lblPhut.Text);
+                giay++;
 
-            if(game.getGoal_user() + game.getGoal_bot() == this.n * this.n)
-            {
-                timer1.Stop();
-                timer2.Stop();
-                proBarCoolDown.Value = 0;
-                panel_BanCo.Enabled = false;
-            }
-            else if(game.getGoal_user() > (this.n * this.n)/2 || game.getGoal_bot() > (this.n * this.n) / 2)
-            {
-                timer1.Stop();
-                timer2.Stop();
-                proBarCoolDown.Value = 0;
-                panel_BanCo.Enabled = false;
-            }
-
-            if(proBarCoolDown.Value >= proBarCoolDown.Maximum)
-            {
-                action = true;
-            }
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-            if(action == true)
-            {
-                game.Action_Bot(game.X_bot, game.Y_bot);
-                picHoanDoi.Invalidate();
-                picHoanDoi.Image = new Bitmap(Application.StartupPath + "\\Img\\ma_xanh.png");
-                txt_Name.Text = NamePlayer;
-                txt_Diem.Text = Convert.ToString(game.getGoal_user());
-                txt_QuayLui.Text = Convert.ToString(game.getBack_user());
-                proBarCoolDown.Value = 0;
-                if(game.getGoal_user() + game.getGoal_bot() == this.n * this.n)
+                if (giay > 59)
                 {
-                    panel_BanCo.Enabled = false;
+                    giay = 0;
+                    phut++;
                 }
-                else if (game.getGoal_user() > (this.n * this.n) / 2 || game.getGoal_bot() > (this.n * this.n) / 2)
+
+                if (giay < 10)
                 {
-                    panel_BanCo.Enabled = false;
+                    lblGiay.Text = "0" + giay;
                 }
                 else
                 {
-                    panel_BanCo.Enabled = true;
+                    lblGiay.Text = Convert.ToString(giay);
                 }
-                
-                action = false;
+
+                if (phut < 10)
+                {
+                    lblPhut.Text = "0" + phut;
+                }
+                else
+                {
+                    lblPhut.Text = Convert.ToString(phut);
+                }
+
+                if(phut == 30)
+                {
+                    timer1.Stop();
+                    MessageBox.Show("Đã thua cuộc!!!.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    lblKQ.Text = "Đã Thua Cuộc!!!";
+                }
             }
         }
 
         private void chơiĐốiKhángToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+            conn.Close();
             frm_FightingGame game = new frm_FightingGame();
             game.ShowDialog();
+        }
+
+        private void btnLuu_Click(object sender, EventArgs e)
+        {
+            int giay = Convert.ToInt32(lblGiay.Text);
+            int phut = Convert.ToInt32(lblPhut.Text);
+
+            int kq = phut * 60 + giay;
+
+            int flag = 0;
+
+            decimal kq_tmp = 9999;
+
+
+
+            try
+            {
+                cmd = new SqlCommand("Select * from Times where Name = N'" + NamePlayer + "';", conn);
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    if(dr.GetString(2) == cmbBanCo.Text)
+                    {
+                        kq_tmp = dr.GetDecimal(1);
+                        flag = 1;
+                    }                
+                }
+                dr.Close();
+              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + ex.StackTrace);
+            }
+
+            if(flag == 1)
+            {
+                if(kq_tmp > kq)
+                {
+                    cmd = new SqlCommand("Update Times set Timer = " + kq + " where Name = N'" + NamePlayer + "';", conn);
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Đã cập nhật kết quả thành công.!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            else
+            {
+                cmd = new SqlCommand("Insert into Times values (N'" + NamePlayer + "', " + kq + ", '" + cmbBanCo.Text + "')", conn);
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Đã lưu kết quả thành công.!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
         }
     }
 }

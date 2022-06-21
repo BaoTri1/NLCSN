@@ -12,8 +12,8 @@ namespace MaDITuan
     public class Paint_Event
     {
 
-        private static int x = 5;
-        private static int y = 5;
+        private static int x = 0;
+        private static int y = 0;
         private static int width = 70;
         private static int height = 70;
 
@@ -35,7 +35,7 @@ namespace MaDITuan
         public static void PaintChess3_Event(Object sender, PaintEventArgs e)
         {
             Graphics g = e.Graphics;
-            Image img = Image.FromFile(Application.StartupPath + "\\Img\\ma_xanh.png");
+            Image img = Image.FromFile(Application.StartupPath + "\\Img\\ma_do.png");
             g.DrawImage(img, x, y, width, height);
         }
 
