@@ -48,18 +48,12 @@
   <ItemGroup>
     <Compile Include="Ban_Co.cs" />
     <Compile Include="NuocDi.cs" />
-    <Compile Include="FightingGame.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="PlayerToPlay.cs" />
+    <Compile Include="frm_PlayerToPlay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frm_FightingGame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frm_FightingGame.Designer.cs">
-      <DependentUpon>frm_FightingGame.cs</DependentUpon>
+    <Compile Include="frm_PlayerToPlay.Designer.cs">
+      <DependentUpon>frm_PlayerToPlay.cs</DependentUpon>
     </Compile>
     <Compile Include="frm_LuatChoi.cs">
       <SubType>Form</SubType>
@@ -84,11 +78,8 @@
     <Compile Include="Paint_Eventcs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frm_FightingGame.resx">
-      <DependentUpon>frm_FightingGame.cs</DependentUpon>
+    <EmbeddedResource Include="frm_PlayerToPlay.resx">
+      <DependentUpon>frm_PlayerToPlay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frm_LuatChoi.resx">
       <DependentUpon>frm_LuatChoi.cs</DependentUpon>

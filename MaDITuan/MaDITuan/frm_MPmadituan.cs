@@ -30,7 +30,7 @@ namespace MaDITuan
         
         private int x, y, n, speed = 0, count = 0;
 
-        private int buocdi, x_lui, y_lui;
+        private int buocdi;
 
         public frm_MPmadituan()
         {
@@ -44,6 +44,8 @@ namespace MaDITuan
             btnNgung.Enabled = false;
             btnLamMoi.Enabled = false;
             btnLuuTru.Enabled = false;
+            txt_td_i.ReadOnly = true;
+            txt_td_j.ReadOnly = true;
         }
 
         private void playSound(String path)
@@ -87,64 +89,9 @@ namespace MaDITuan
                         btnBatDau.Enabled = true;
                         btnLamMoi.Enabled = true;
                         btnKhoiTao.Enabled = false;
+                        txt_td_i.ReadOnly = false;
+                        txt_td_j.ReadOnly = false;
 
-                        /*                       try
-                                               {
-                                                   this.x = chuyendoi_so(txt_td_i.Text);
-                                                   this.y = Convert.ToInt32(txt_td_j.Text) - 1;
-
-                                                   if(x >= 0 && x < n && y >= 0 && y < n)
-                                                   {
-
-                                                       knighttrip = new KnightTrip(n);
-
-                                                       //Vẽ bàn cờ nxn
-                                                       knighttrip.Ve_BanCo(panel_BanCo);
-
-                                                       //Vẽ quân mã tại vị trí (x, y)
-                                                       knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x, y].getO_Co(), BOT);
-
-                                                       //Xet bước đi ưu tiên của (x, y)
-                                                       knighttrip.PriorityMove(x, y);
-
-                                                       //Vẽ quân mã tại vị trí ưu tiên
-                                                       knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT_NEXTLOCATION);
-
-                                                       btnBatDau.Enabled = true;
-                                                       btnLamMoi.Enabled = true;
-                                                       btnKhoiTao.Enabled = false;
-
-                                                       playSound(sound_readyGo);
-
-                                                       this.toadoX = new String[this.n * this.n];
-                                                       this.toadoY = new int[this.n * this.n];
-
-                                                       for(int i = 0; i < this.n * this.n; i++)
-                                                       {
-                                                           this.toadoX[i] = null;
-                                                           this.toadoY[i] = -1;
-                                                       }
-
-                                                       lbl_Text_BanCo.Text = Convert.ToString(this.n) + " x " + Convert.ToString(this.n);
-                                                       lbl_Text_TongSoO.Text = Convert.ToString(this.n * this.n);
-                                                       lbl_Text_ToaDoI.Text = txt_td_i.Text;
-                                                       lbl_Text_ToaDoJ.Text = txt_td_j.Text;
-
-
-                                                   }
-                                                   else
-                                                   {
-                                                       MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. 0 <= i, j < ." + txtnxn.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
-                                                   }
-
-
-                                               }
-                                               catch (Exception ex)
-                                               {
-                                                   MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i và j phải là số nguyên.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                                               }*/
                     }
                     else
                     {
@@ -197,77 +144,30 @@ namespace MaDITuan
                 int x_next = knighttrip.getDD_X()[this.buocdi];
                 int y_next = knighttrip.getDD_Y()[this.buocdi];
 
-                knighttrip.getbanco().getMang()[x_next, y_next].getO_Co().Invalidate();
+                if(x_next == -1 && y_next == -1)
+                {
+                    timer1.Enabled = false;
+                    DialogResult result = MessageBox.Show("Không tìm thấy hành trình đi tuần của quân MÃ. ", "Rất tiếc!!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (result == DialogResult.OK)
+                    {
+                        soundplayer.Stop();
+                        playSound(sound_wait);
 
-                knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x_next, y_next].getO_Co(), BOT);
+                        btnLuuTru.Enabled = true;
+
+                        lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
+                        lbl_Text_Kq.Text = "Không hoàn thành.";
+                        in_toado();
+                    }
+                }
+                else
+                {
+                    knighttrip.getbanco().getMang()[x_next, y_next].getO_Co().Invalidate();
+
+                    knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x_next, y_next].getO_Co(), BOT);
+                }
+
             }
-
-
-
-            /*           if (knighttrip.duyetchienthang())
-                       {
-                           timer1.Enabled = false;
-                           DialogResult result = MessageBox.Show("Đã hoàn thành hành trình đi tuần của quân MÃ. ", "Chúc mừng Bạn!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                           if(result == DialogResult.OK)
-                           {
-                               soundplayer.Stop();
-                               playSound(sound_wait);
-
-                               btnLuuTru.Enabled = true;
-
-                               lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
-                               lbl_Text_Kq.Text = "Đã hoàn thành.";
-                               in_toado();
-                           }
-
-                       }
-                       else
-                       {
-                           //Vẽ kết quả số bước đi lên ô đã đi qua
-                           knighttrip.Ve_goal(knighttrip.getbanco().getMang()[x, y].getO_Co());
-
-                           this.toadoX[this.count] = chuyendoi_chu(x);
-                           this.toadoY[this.count] = y;
-                           this.count++;
-
-                           //Đánh dấu ô đã đi qua rồi
-                           knighttrip.getbanco().getMang()[x, y].Check = 1;
-
-                           //Lấy điểm ưu tiên tiếp theo của (x, y)
-                           if (knighttrip.PriorityMove(x, y) == 0 && knighttrip.getGoal() < this.n * this.n)
-                           {
-                               timer1.Enabled = false;
-                               DialogResult result = MessageBox.Show("Đã hết đường tiến hành quay lui. ", "Đã hết đường đi!!!!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                               if (result == DialogResult.OK)
-                               {
-                                   timer2.Enabled = true;
-
-                               }
-                           }
-                           else
-                           {
-                               this.x_lui = this.x;
-                               this.y_lui = this.y;
-
-                               this.x = knighttrip.X_priorities;
-                               this.y = knighttrip.Y_priorities;
-
-                               //MessageBox.Show(Convert.ToString(x) + Convert.ToString(y));
-
-                               if (knighttrip.getGoal() < n * n - 1)
-                               {
-                                   //Xóa quân cờ ở điểm ưu tiên
-                                   knighttrip.Clear(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co());
-
-                                   //Gọi Invalidate(); để vẽ lại ô cờ
-                                   knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co().Invalidate();
-
-                                   //Vẽ quân cờ lên điểm ưu tiên thể hiển quân cờ đã đi đến điểm ưu tiên;
-                                   knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT);
-                               }
-                           }
-
-                       } */
         }
 
         private void btnNgung_Click(object sender, EventArgs e)
@@ -286,68 +186,13 @@ namespace MaDITuan
 
         private void timer2_Tick(object sender, EventArgs e)
         {
-//            knighttrip.getbanco().getMang()[this.x, this.y].getO_Co().Controls.Clear();
-
-            knighttrip.getbanco().getMang()[this.x, this.y].Check = 0;
-
-            this.toadoX[count] = null;
-            this.toadoY[count] = -1;
-
-            this.count--;
-
-            Console.WriteLine(x_lui);
-            Console.WriteLine(y_lui);
-
-//            knighttrip.setGoal(knighttrip.getGoal() - 1);
-
-            if(knighttrip.PriorityMove_Seconds(this.x_lui, this.y_lui, this.x, this.y) == 0 || knighttrip.getGoal() == (this.n * this.n - 2))
-            {
-                timer2.Enabled = false;
-                DialogResult result = MessageBox.Show("Không tìm được hành trình quân Mã. ", "Chia Buồn với bạn!!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (result == DialogResult.OK)
-                {
-                    soundplayer.Stop();
-                    playSound(sound_wait);
-
-                    btnLuuTru.Enabled = true;
-
-                    lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
-                    lbl_Text_Kq.Text = "Không hoàn thành.";
-                    in_toado();
-                }
-
-            }
-            else
-            {
-                knighttrip.getbanco().getMang()[this.x, this.y].getO_Co().Controls.Clear();
-
-                this.x = knighttrip.X_priorities;
-                this.y = knighttrip.Y_priorities;
-
-
-                knighttrip.setGoal(knighttrip.getGoal() - 1);
-
-                knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[knighttrip.X_priorities, knighttrip.Y_priorities].getO_Co(), BOT);
-
-
-                timer2.Enabled = false;
-
-                DialogResult result = MessageBox.Show("Đã chọn ra vi trí quay lui.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
-                    timer1.Enabled = true;
-                }
-
-                Console.WriteLine(x);
-                Console.WriteLine(y);
-            }
 
         }
 
         private void chơiĐốiKhángToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            frm_FightingGame game = new frm_FightingGame();
+            frm_PlayerToPlay game = new frm_PlayerToPlay();
             game.ShowDialog();
         }
 
@@ -372,13 +217,15 @@ namespace MaDITuan
                 streamWriter.WriteLine("Tổng số ô đi được: " + lbl_Text_TongSoODaDi.Text);
                 streamWriter.WriteLine("Toạ độ các điểm đi lần lượt là: ");
                 for (int i = 0; i < this.n * this.n; i++)
-                    streamWriter.WriteLine("Bước " + (i + 1) + ": (" + this.toadoX[i] + ", " + this.toadoY[i] + "). ");
+                    streamWriter.WriteLine("Bước " + (i + 1) + ": (" + this.toadoX[i] + ", " + this.toadoY[i] + ").");
                 streamWriter.WriteLine("Kết quả: " + lbl_Text_Kq.Text);
                 streamWriter.WriteLine("");
-                streamWriter.WriteLine("Ghi chú: (-1, -1) là tọa độ ko tồn tại.");
+                streamWriter.WriteLine("Ghi chú: (null, -1) là tọa độ ko tồn tại.");
                 streamWriter.Close();
                 fileStream.Close();
             }
+
+            MessageBox.Show("Đã lưu file thành công.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnBatDau_Click(object sender, EventArgs e)
@@ -431,13 +278,13 @@ namespace MaDITuan
                 }
                 else
                 {
-                    MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. 0 <= i, j < ." + txtnxn.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i phải là chữ cái In Hoa (A -> J), 0 <= j < ." + txtnxn.Text, "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i và j phải là số nguyên.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("tọa độ i hoặc j không hợp lệ !!!. i phải là chữ cái in Hoa và j phải là số nguyên.", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
         }
@@ -447,6 +294,8 @@ namespace MaDITuan
             panel_BanCo.Controls.Clear();
             txtnxn.Text = "";
             txt_td_i.Text = "";
+            txt_td_i.ReadOnly = true;
+            txt_td_j.ReadOnly = true;
             txt_td_j.Text = "";
             btnLamMoi.Enabled = false;
             btnKhoiTao.Enabled = true;
@@ -495,7 +344,7 @@ namespace MaDITuan
                 {
                     Label lbl = new Label();
                     {
-                        lbl.Text = "Buoc " + (i + 1) + ": (" + this.toadoX[i] + ", " + (this.toadoY[i] + 1) + "), ";
+                        lbl.Text = "Bước " + (i + 1) + ": (" + this.toadoX[i] + ", " + (this.toadoY[i] + 1) + "), ";
                         Font font = new Font("Microsoft Sans Serif", 9);
                         lbl.Font = font;
                         lbl.ForeColor = Color.Blue;

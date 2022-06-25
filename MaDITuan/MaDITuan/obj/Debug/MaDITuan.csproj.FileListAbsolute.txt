@@ -11,5 +11,4 @@ D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.exe
 D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.pdb
 D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_LuatChoi.resources
 D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_MPmadituan.resources
-D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.Form1.resources
-D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_FightingGame.resources
+D:\NienLuanCoSoNghanh\MaDITuan\MaDITuan\obj\Debug\MaDITuan.frm_PlayerToPlay.resources

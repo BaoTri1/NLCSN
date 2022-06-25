@@ -36,7 +36,7 @@ namespace MaDITuan
         private void btnDoiKhang_Click(object sender, EventArgs e)
         {
             player.Stop();
-            frm_FightingGame game = new frm_FightingGame();
+            frm_PlayerToPlay game = new frm_PlayerToPlay();
             game.ShowDialog();
             player.PlayLooping();
         }

@@ -117,6 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="lbl6_cc.Text" xml:space="preserve">
+    <value>- Người chơi lưu kết quả bằng click vào Nút lưu kết quả. Kết quả:
+    * Nếu kết quả &lt; kỉ lục đã có trước đó thì cập nhật lại.
+    * Nếu chưa có kỉ lục cá nhân thì lưu lại kết quả với tên
+    Người chơi đã nhập và bàn cờ đã chọn.
+</value>
+  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

@@ -228,6 +228,8 @@ namespace MaDITuan
                     banco.getMang()[LuaChon[i].X, LuaChon[i].Y].Check = 0;
                     if (win != true)
                     {
+                        this.dd_X[goal] = -1;
+                        this.dd_Y[goal] = -1;
                         this.goal--;
                     }
 
@@ -248,7 +250,7 @@ namespace MaDITuan
                 lbl.ForeColor = Color.Red;
                 lbl.Width = 80;
                 lbl.Height = 80;
-                lbl.Location = new Point(2, 17);
+                lbl.Location = new Point(0, 17);
             }
             pic.Controls.Add(lbl);
         }
@@ -271,56 +273,6 @@ namespace MaDITuan
                 }
             }
             return count;
-        }
-
-        public virtual int PriorityMove(int x, int y)
-        {
-            int flag = 0;
-            int min = 9999;
-            for (int i = 0; i < 8; i++)
-            {
-                int x_tmp = x + col[i];
-                int y_tmp = y + row[i];
-                if (x_tmp >= 0 && x_tmp < this.So_o && y_tmp >= 0 && y_tmp < this.So_o && banco.getMang()[x_tmp, y_tmp].Check == 0)
-                {
-                    if (CountMove(x_tmp, y_tmp) < min)
-                    {
-                        min = CountMove(x_tmp, y_tmp);
-                        this.X_priorities = x_tmp;
-                        this.Y_priorities = y_tmp;
-                        flag = 1;
-                    }
-                }
-            }
-
-            return flag;
-        }
-
-        public int PriorityMove_Seconds(int x, int y, int x_lui, int y_lui)
-        {
-            int flag = 0;
-            int min = 9999;
-            for (int i = 0; i < 8; i++)
-            {
-                int x_tmp = x + col[i];
-                int y_tmp = y + row[i];
-                if (x_tmp >= 0 && x_tmp < this.So_o && y_tmp >= 0 && y_tmp < this.So_o && banco.getMang()[x_tmp, y_tmp].Check == 0)
-                {
-                    if((x_tmp == x_lui && y_tmp != y_lui) || (x_tmp != x_lui && y_tmp == y_lui) || (x_tmp != x_lui && y_tmp != y_lui))
-                    {
-                        if (CountMove(x_tmp, y_tmp) < min)
-                        {
-                            min = CountMove(x_tmp, y_tmp);
-                            this.X_priorities = x_tmp;
-                            this.Y_priorities = y_tmp;
-                            flag = 1;
-                        }
-                    }
-
-                }
-            }
-
-            return flag;
         }
 
         public virtual Boolean duyetchienthang()

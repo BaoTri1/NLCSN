@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_LuatChoi));
             this.gBoxLuatChoi = new System.Windows.Forms.GroupBox();
+            this.rbtnDoiKhang = new System.Windows.Forms.RadioButton();
+            this.rbtnMoPhong = new System.Windows.Forms.RadioButton();
             this.lbl5 = new System.Windows.Forms.Label();
             this.lbl4 = new System.Windows.Forms.Label();
             this.lbl3 = new System.Windows.Forms.Label();
@@ -48,40 +50,40 @@
             this.pic1 = new System.Windows.Forms.PictureBox();
             this.lblHeading = new System.Windows.Forms.Label();
             this.panelMoPhong = new System.Windows.Forms.Panel();
-            this.panelDoiKhang = new System.Windows.Forms.Panel();
-            this.lbl1_cc = new System.Windows.Forms.Label();
-            this.lbl2_cc = new System.Windows.Forms.Label();
-            this.lbl3_cc = new System.Windows.Forms.Label();
-            this.lbl4_cc = new System.Windows.Forms.Label();
-            this.lbl5_cc = new System.Windows.Forms.Label();
-            this.lbl3_cn = new System.Windows.Forms.Label();
-            this.lblDoiKhang = new System.Windows.Forms.Label();
-            this.lbl6_cc = new System.Windows.Forms.Label();
-            this.lbl1_cn = new System.Windows.Forms.Label();
-            this.lbl4_cn = new System.Windows.Forms.Label();
-            this.lbl2_cn = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.lbl10 = new System.Windows.Forms.Label();
             this.lbl9 = new System.Windows.Forms.Label();
             this.lbl8 = new System.Windows.Forms.Label();
             this.lbl7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblHeading1 = new System.Windows.Forms.Label();
-            this.gBoxCachChoi = new System.Windows.Forms.GroupBox();
+            this.panelDoiKhang = new System.Windows.Forms.Panel();
             this.gBoxDKT = new System.Windows.Forms.GroupBox();
             this.lbl1_dk = new System.Windows.Forms.Label();
             this.lbl3_dk = new System.Windows.Forms.Label();
             this.lbl2_dk = new System.Windows.Forms.Label();
-            this.rbtnMoPhong = new System.Windows.Forms.RadioButton();
-            this.rbtnDoiKhang = new System.Windows.Forms.RadioButton();
+            this.gBoxCachChoi = new System.Windows.Forms.GroupBox();
+            this.lbl7_cc = new System.Windows.Forms.Label();
+            this.lbl6_cc = new System.Windows.Forms.Label();
+            this.lbl1_cc = new System.Windows.Forms.Label();
+            this.lbl4_cc = new System.Windows.Forms.Label();
+            this.lbl3_cc = new System.Windows.Forms.Label();
+            this.lbl5_cc = new System.Windows.Forms.Label();
+            this.lbl2_cc = new System.Windows.Forms.Label();
+            this.lbl3_cn = new System.Windows.Forms.Label();
+            this.lblDoiKhang = new System.Windows.Forms.Label();
+            this.lbl1_cn = new System.Windows.Forms.Label();
+            this.lbl4_cn = new System.Windows.Forms.Label();
+            this.lbl2_cn = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lbl5_cn = new System.Windows.Forms.Label();
             this.gBoxLuatChoi.SuspendLayout();
             this.panel_CachDiChuyen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             this.panelMoPhong.SuspendLayout();
             this.panelDoiKhang.SuspendLayout();
-            this.gBoxCachChoi.SuspendLayout();
             this.gBoxDKT.SuspendLayout();
+            this.gBoxCachChoi.SuspendLayout();
             this.SuspendLayout();
             // 
             // gBoxLuatChoi
@@ -98,11 +100,33 @@
             this.gBoxLuatChoi.TabStop = false;
             this.gBoxLuatChoi.Text = "Luật chơi:";
             // 
+            // rbtnDoiKhang
+            // 
+            this.rbtnDoiKhang.AutoSize = true;
+            this.rbtnDoiKhang.Location = new System.Drawing.Point(468, 38);
+            this.rbtnDoiKhang.Name = "rbtnDoiKhang";
+            this.rbtnDoiKhang.Size = new System.Drawing.Size(184, 24);
+            this.rbtnDoiKhang.TabIndex = 1;
+            this.rbtnDoiKhang.Text = "Chế độ Người chơi";
+            this.rbtnDoiKhang.UseVisualStyleBackColor = true;
+            this.rbtnDoiKhang.CheckedChanged += new System.EventHandler(this.rbtnDoiKhang_CheckedChanged);
+            // 
+            // rbtnMoPhong
+            // 
+            this.rbtnMoPhong.AutoSize = true;
+            this.rbtnMoPhong.Location = new System.Drawing.Point(77, 38);
+            this.rbtnMoPhong.Name = "rbtnMoPhong";
+            this.rbtnMoPhong.Size = new System.Drawing.Size(170, 24);
+            this.rbtnMoPhong.TabIndex = 0;
+            this.rbtnMoPhong.Text = "Chế độ Máy chơi";
+            this.rbtnMoPhong.UseVisualStyleBackColor = true;
+            this.rbtnMoPhong.CheckedChanged += new System.EventHandler(this.rbtnMoPhong_CheckedChanged);
+            // 
             // lbl5
             // 
             this.lbl5.AutoSize = true;
             this.lbl5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5.Location = new System.Drawing.Point(71, 286);
+            this.lbl5.Location = new System.Drawing.Point(71, 316);
             this.lbl5.Name = "lbl5";
             this.lbl5.Size = new System.Drawing.Size(332, 20);
             this.lbl5.TabIndex = 4;
@@ -112,7 +136,7 @@
             // 
             this.lbl4.AutoSize = true;
             this.lbl4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4.Location = new System.Drawing.Point(71, 244);
+            this.lbl4.Location = new System.Drawing.Point(71, 274);
             this.lbl4.Name = "lbl4";
             this.lbl4.Size = new System.Drawing.Size(256, 20);
             this.lbl4.TabIndex = 3;
@@ -122,7 +146,7 @@
             // 
             this.lbl3.AutoSize = true;
             this.lbl3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3.Location = new System.Drawing.Point(71, 204);
+            this.lbl3.Location = new System.Drawing.Point(71, 234);
             this.lbl3.Name = "lbl3";
             this.lbl3.Size = new System.Drawing.Size(439, 20);
             this.lbl3.TabIndex = 2;
@@ -134,9 +158,10 @@
             this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2.Location = new System.Drawing.Point(71, 125);
             this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(394, 20);
+            this.lbl2.Size = new System.Drawing.Size(550, 60);
             this.lbl2.TabIndex = 1;
-            this.lbl2.Text = "2. Nhập tọa độ (i, j) để chọn ô bắt đầu cho quân mã.";
+            this.lbl2.Text = "2. Nhập tọa độ (i, j) để chọn ô bắt đầu cho quân mã tùy theo từng bàn cờ.\r\n   - T" +
+    "ọa độ i là các chữ cái In Hoa từ A -> J.\r\n   - Tọa độ j là các số từ 1 -> 10.\r\n";
             // 
             // lbl1
             // 
@@ -295,11 +320,72 @@
             this.panelMoPhong.Controls.Add(this.lbl4);
             this.panelMoPhong.Controls.Add(this.lbl2);
             this.panelMoPhong.Controls.Add(this.lbl3);
-            this.panelMoPhong.Location = new System.Drawing.Point(784, 122);
+            this.panelMoPhong.Location = new System.Drawing.Point(784, 120);
             this.panelMoPhong.Name = "panelMoPhong";
             this.panelMoPhong.Size = new System.Drawing.Size(749, 665);
             this.panelMoPhong.TabIndex = 5;
             this.panelMoPhong.Visible = false;
+            // 
+            // lbl10
+            // 
+            this.lbl10.AutoSize = true;
+            this.lbl10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl10.Location = new System.Drawing.Point(71, 500);
+            this.lbl10.Name = "lbl10";
+            this.lbl10.Size = new System.Drawing.Size(566, 20);
+            this.lbl10.TabIndex = 11;
+            this.lbl10.Text = "10. Thông tin hành trình, cho biết tất cả thông tin của hành trình mã đi tuần.";
+            // 
+            // lbl9
+            // 
+            this.lbl9.AutoSize = true;
+            this.lbl9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl9.Location = new System.Drawing.Point(71, 457);
+            this.lbl9.Name = "lbl9";
+            this.lbl9.Size = new System.Drawing.Size(385, 20);
+            this.lbl9.TabIndex = 10;
+            this.lbl9.Text = "9. Ghi chú, cho biết thông tin sơ bộ về chế độ chơi.\r\n";
+            // 
+            // lbl8
+            // 
+            this.lbl8.AutoSize = true;
+            this.lbl8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl8.Location = new System.Drawing.Point(71, 417);
+            this.lbl8.Name = "lbl8";
+            this.lbl8.Size = new System.Drawing.Size(503, 20);
+            this.lbl8.TabIndex = 9;
+            this.lbl8.Text = "8. Chọn Tốc độ, để thiết lập tốc độ hành trình đi tuần của quân Mã.";
+            // 
+            // lbl7
+            // 
+            this.lbl7.AutoSize = true;
+            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7.Location = new System.Drawing.Point(71, 359);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(579, 40);
+            this.lbl7.TabIndex = 7;
+            this.lbl7.Text = "7. Nút Tạm Ngưng, để tạm dừng quá trình đi tuần. Sau khi click nút đổi thành \r\nnú" +
+    "t Tiếp Tục, để khi click sẽ tiếp tục hành trình đi tuần.";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(71, 195);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(229, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "3. Nút Khởi tạo để tạo bàn cờ.";
+            // 
+            // lblHeading1
+            // 
+            this.lblHeading1.AutoSize = true;
+            this.lblHeading1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHeading1.Location = new System.Drawing.Point(52, 23);
+            this.lblHeading1.Name = "lblHeading1";
+            this.lblHeading1.Size = new System.Drawing.Size(628, 32);
+            this.lblHeading1.TabIndex = 5;
+            this.lblHeading1.Text = "Mô tả các nút chức năng của chế độ máy chơi\r\n";
             // 
             // panelDoiKhang
             // 
@@ -308,6 +394,7 @@
             this.panelDoiKhang.AutoScroll = true;
             this.panelDoiKhang.BackColor = System.Drawing.SystemColors.Control;
             this.panelDoiKhang.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panelDoiKhang.Controls.Add(this.lbl5_cn);
             this.panelDoiKhang.Controls.Add(this.gBoxDKT);
             this.panelDoiKhang.Controls.Add(this.gBoxCachChoi);
             this.panelDoiKhang.Controls.Add(this.lbl3_cn);
@@ -316,11 +403,91 @@
             this.panelDoiKhang.Controls.Add(this.lbl4_cn);
             this.panelDoiKhang.Controls.Add(this.lbl2_cn);
             this.panelDoiKhang.Controls.Add(this.label13);
-            this.panelDoiKhang.Location = new System.Drawing.Point(784, 120);
+            this.panelDoiKhang.Location = new System.Drawing.Point(784, 113);
             this.panelDoiKhang.Name = "panelDoiKhang";
             this.panelDoiKhang.Size = new System.Drawing.Size(739, 667);
             this.panelDoiKhang.TabIndex = 12;
             this.panelDoiKhang.Visible = false;
+            // 
+            // gBoxDKT
+            // 
+            this.gBoxDKT.Controls.Add(this.lbl1_dk);
+            this.gBoxDKT.Controls.Add(this.lbl3_dk);
+            this.gBoxDKT.Controls.Add(this.lbl2_dk);
+            this.gBoxDKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxDKT.Location = new System.Drawing.Point(23, 663);
+            this.gBoxDKT.Name = "gBoxDKT";
+            this.gBoxDKT.Size = new System.Drawing.Size(688, 141);
+            this.gBoxDKT.TabIndex = 13;
+            this.gBoxDKT.TabStop = false;
+            this.gBoxDKT.Text = "Điều kiện thắng:";
+            // 
+            // lbl1_dk
+            // 
+            this.lbl1_dk.AutoSize = true;
+            this.lbl1_dk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1_dk.Location = new System.Drawing.Point(38, 23);
+            this.lbl1_dk.Name = "lbl1_dk";
+            this.lbl1_dk.Size = new System.Drawing.Size(417, 20);
+            this.lbl1_dk.TabIndex = 11;
+            this.lbl1_dk.Text = "- Dùng thời gian ngắn nhất để hoàn thành hành trình đi.\r\n";
+            // 
+            // lbl3_dk
+            // 
+            this.lbl3_dk.AutoSize = true;
+            this.lbl3_dk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3_dk.Location = new System.Drawing.Point(38, 89);
+            this.lbl3_dk.Name = "lbl3_dk";
+            this.lbl3_dk.Size = new System.Drawing.Size(320, 20);
+            this.lbl3_dk.TabIndex = 8;
+            this.lbl3_dk.Text = "- Thời gian hoàn thành trò chơi  < 30 phút.";
+            // 
+            // lbl2_dk
+            // 
+            this.lbl2_dk.AutoSize = true;
+            this.lbl2_dk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2_dk.Location = new System.Drawing.Point(38, 57);
+            this.lbl2_dk.Name = "lbl2_dk";
+            this.lbl2_dk.Size = new System.Drawing.Size(338, 20);
+            this.lbl2_dk.TabIndex = 9;
+            this.lbl2_dk.Text = "- Tổng số điểm bằng tổng số ô trong bàn cờ.\r\n";
+            // 
+            // gBoxCachChoi
+            // 
+            this.gBoxCachChoi.Controls.Add(this.lbl7_cc);
+            this.gBoxCachChoi.Controls.Add(this.lbl6_cc);
+            this.gBoxCachChoi.Controls.Add(this.lbl1_cc);
+            this.gBoxCachChoi.Controls.Add(this.lbl4_cc);
+            this.gBoxCachChoi.Controls.Add(this.lbl3_cc);
+            this.gBoxCachChoi.Controls.Add(this.lbl5_cc);
+            this.gBoxCachChoi.Controls.Add(this.lbl2_cc);
+            this.gBoxCachChoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxCachChoi.Location = new System.Drawing.Point(23, 241);
+            this.gBoxCachChoi.Name = "gBoxCachChoi";
+            this.gBoxCachChoi.Size = new System.Drawing.Size(688, 403);
+            this.gBoxCachChoi.TabIndex = 12;
+            this.gBoxCachChoi.TabStop = false;
+            this.gBoxCachChoi.Text = "Cách chơi:";
+            // 
+            // lbl7_cc
+            // 
+            this.lbl7_cc.AutoSize = true;
+            this.lbl7_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7_cc.Location = new System.Drawing.Point(38, 314);
+            this.lbl7_cc.Name = "lbl7_cc";
+            this.lbl7_cc.Size = new System.Drawing.Size(485, 40);
+            this.lbl7_cc.TabIndex = 13;
+            this.lbl7_cc.Text = "- Nếu Người chơi đi vào ô không có đường đi thì trò chơi kết thúc\r\n.";
+            // 
+            // lbl6_cc
+            // 
+            this.lbl6_cc.AutoSize = true;
+            this.lbl6_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl6_cc.Location = new System.Drawing.Point(38, 219);
+            this.lbl6_cc.Name = "lbl6_cc";
+            this.lbl6_cc.Size = new System.Drawing.Size(484, 80);
+            this.lbl6_cc.TabIndex = 12;
+            this.lbl6_cc.Text = resources.GetString("lbl6_cc.Text");
             // 
             // lbl1_cc
             // 
@@ -328,50 +495,50 @@
             this.lbl1_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1_cc.Location = new System.Drawing.Point(38, 23);
             this.lbl1_cc.Name = "lbl1_cc";
-            this.lbl1_cc.Size = new System.Drawing.Size(329, 20);
+            this.lbl1_cc.Size = new System.Drawing.Size(461, 20);
             this.lbl1_cc.TabIndex = 11;
-            this.lbl1_cc.Text = "- Người chơi có thể chọn đi trước hoặc sau.";
-            // 
-            // lbl2_cc
-            // 
-            this.lbl2_cc.AutoSize = true;
-            this.lbl2_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2_cc.Location = new System.Drawing.Point(38, 54);
-            this.lbl2_cc.Name = "lbl2_cc";
-            this.lbl2_cc.Size = new System.Drawing.Size(435, 20);
-            this.lbl2_cc.TabIndex = 10;
-            this.lbl2_cc.Text = "- Người chơi và Máy lần lượt đặt quân cờ và vị trí đã chọn.";
-            // 
-            // lbl3_cc
-            // 
-            this.lbl3_cc.AutoSize = true;
-            this.lbl3_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3_cc.Location = new System.Drawing.Point(38, 87);
-            this.lbl3_cc.Name = "lbl3_cc";
-            this.lbl3_cc.Size = new System.Drawing.Size(576, 20);
-            this.lbl3_cc.TabIndex = 9;
-            this.lbl3_cc.Text = "- Lần lượt di chuyển quân cờ theo cách di chuyển của quân Mã trong cờ vua.";
+            this.lbl1_cc.Text = "- Người chơi click để đặt quân cờ vào bàn cờ khi mới bắt đầu.";
             // 
             // lbl4_cc
             // 
             this.lbl4_cc.AutoSize = true;
             this.lbl4_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4_cc.Location = new System.Drawing.Point(38, 117);
+            this.lbl4_cc.Location = new System.Drawing.Point(38, 128);
             this.lbl4_cc.Name = "lbl4_cc";
-            this.lbl4_cc.Size = new System.Drawing.Size(485, 20);
-            this.lbl4_cc.TabIndex = 8;
-            this.lbl4_cc.Text = "- Mỗi Người chơi hoặc Máy đi qua được đánh dấu và tính 1 điểm.";
+            this.lbl4_cc.Size = new System.Drawing.Size(339, 20);
+            this.lbl4_cc.TabIndex = 7;
+            this.lbl4_cc.Text = "- Người chơi không thể đi vào ô đã đánh dấu.";
+            // 
+            // lbl3_cc
+            // 
+            this.lbl3_cc.AutoSize = true;
+            this.lbl3_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl3_cc.Location = new System.Drawing.Point(38, 88);
+            this.lbl3_cc.Name = "lbl3_cc";
+            this.lbl3_cc.Size = new System.Drawing.Size(422, 20);
+            this.lbl3_cc.TabIndex = 8;
+            this.lbl3_cc.Text = "- Mỗi ô Người chơi đi qua được đánh dấu và tính 1 điểm.";
             // 
             // lbl5_cc
             // 
             this.lbl5_cc.AutoSize = true;
             this.lbl5_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5_cc.Location = new System.Drawing.Point(38, 149);
+            this.lbl5_cc.Location = new System.Drawing.Point(37, 161);
             this.lbl5_cc.Name = "lbl5_cc";
-            this.lbl5_cc.Size = new System.Drawing.Size(520, 40);
-            this.lbl5_cc.TabIndex = 7;
-            this.lbl5_cc.Text = "- Người chơi có thể đi vào ô thuộc về Máy để cướp đi ô đó. Ngược lại \r\nMáy cũng c" +
-    "ó thể.";
+            this.lbl5_cc.Size = new System.Drawing.Size(557, 40);
+            this.lbl5_cc.TabIndex = 4;
+            this.lbl5_cc.Text = "- Người chơi dùng thời gian ngắn nhất để hoàn thành trò chơi. Thời gian đó\r\nđược " +
+    "lưu thành kỉ lục cá nhân dựa trên bàn cờ và Tên Người chơi đã nhập.\r\n";
+            // 
+            // lbl2_cc
+            // 
+            this.lbl2_cc.AutoSize = true;
+            this.lbl2_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2_cc.Location = new System.Drawing.Point(38, 52);
+            this.lbl2_cc.Name = "lbl2_cc";
+            this.lbl2_cc.Size = new System.Drawing.Size(576, 20);
+            this.lbl2_cc.TabIndex = 9;
+            this.lbl2_cc.Text = "- Lần lượt di chuyển quân cờ theo cách di chuyển của quân Mã trong cờ vua.";
             // 
             // lbl3_cn
             // 
@@ -387,22 +554,11 @@
             // 
             this.lblDoiKhang.AutoSize = true;
             this.lblDoiKhang.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDoiKhang.Location = new System.Drawing.Point(182, 23);
+            this.lblDoiKhang.Location = new System.Drawing.Point(146, 15);
             this.lblDoiKhang.Name = "lblDoiKhang";
-            this.lblDoiKhang.Size = new System.Drawing.Size(407, 32);
+            this.lblDoiKhang.Size = new System.Drawing.Size(464, 32);
             this.lblDoiKhang.TabIndex = 5;
-            this.lblDoiKhang.Text = "Luật chơi Trò chơi Đối Kháng";
-            // 
-            // lbl6_cc
-            // 
-            this.lbl6_cc.AutoSize = true;
-            this.lbl6_cc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl6_cc.Location = new System.Drawing.Point(38, 197);
-            this.lbl6_cc.Name = "lbl6_cc";
-            this.lbl6_cc.Size = new System.Drawing.Size(561, 80);
-            this.lbl6_cc.TabIndex = 4;
-            this.lbl6_cc.Text = "- Người chơi có thể đi lại ô đã đi qua bằng cách dùng lượt quay lui. Nếu hết\r\nlượ" +
-    "t quay lui thì không thể đi lại được. Tương tự, Máy cũng vậy.\r\n\r\n\r\n";
+            this.lblDoiKhang.Text = "Cách chơi của chế độ Người Chơi\r\n";
             // 
             // lbl1_cn
             // 
@@ -410,9 +566,9 @@
             this.lbl1_cn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl1_cn.Location = new System.Drawing.Point(71, 88);
             this.lbl1_cn.Name = "lbl1_cn";
-            this.lbl1_cn.Size = new System.Drawing.Size(181, 20);
+            this.lbl1_cn.Size = new System.Drawing.Size(209, 20);
             this.lbl1_cn.TabIndex = 0;
-            this.lbl1_cn.Text = "1. Chọn Bàn cờ (8 x 8).\r\n";
+            this.lbl1_cn.Text = "1. Chọn Bàn cờ (bắt buộc).\r\n";
             // 
             // lbl4_cn
             // 
@@ -430,9 +586,9 @@
             this.lbl2_cn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl2_cn.Location = new System.Drawing.Point(71, 125);
             this.lbl2_cn.Name = "lbl2_cn";
-            this.lbl2_cn.Size = new System.Drawing.Size(318, 20);
+            this.lbl2_cn.Size = new System.Drawing.Size(267, 20);
             this.lbl2_cn.TabIndex = 1;
-            this.lbl2_cn.Text = "2. Nhập tên Người chơi. (Có thể bỏ trống.)";
+            this.lbl2_cn.Text = "2. Nhập tên Người chơi. (bắt buộc).";
             // 
             // label13
             // 
@@ -443,150 +599,15 @@
             this.label13.Size = new System.Drawing.Size(0, 20);
             this.label13.TabIndex = 2;
             // 
-            // lbl10
+            // lbl5_cn
             // 
-            this.lbl10.AutoSize = true;
-            this.lbl10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl10.Location = new System.Drawing.Point(71, 470);
-            this.lbl10.Name = "lbl10";
-            this.lbl10.Size = new System.Drawing.Size(566, 20);
-            this.lbl10.TabIndex = 11;
-            this.lbl10.Text = "10. Thông tin hành trình, cho biết tất cả thông tin của hành trình mã đi tuần.";
-            // 
-            // lbl9
-            // 
-            this.lbl9.AutoSize = true;
-            this.lbl9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl9.Location = new System.Drawing.Point(71, 427);
-            this.lbl9.Name = "lbl9";
-            this.lbl9.Size = new System.Drawing.Size(573, 20);
-            this.lbl9.TabIndex = 10;
-            this.lbl9.Text = "9. Ghi chú, cho biết thông tin về vị trí hiện tại và vị trí tiếp theo của quân Mã" +
-    ".";
-            // 
-            // lbl8
-            // 
-            this.lbl8.AutoSize = true;
-            this.lbl8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl8.Location = new System.Drawing.Point(71, 387);
-            this.lbl8.Name = "lbl8";
-            this.lbl8.Size = new System.Drawing.Size(503, 20);
-            this.lbl8.TabIndex = 9;
-            this.lbl8.Text = "8. Chọn Tốc độ, để thiết lập tốc độ hành trình đi tuần của quân Mã.";
-            // 
-            // lbl7
-            // 
-            this.lbl7.AutoSize = true;
-            this.lbl7.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl7.Location = new System.Drawing.Point(71, 329);
-            this.lbl7.Name = "lbl7";
-            this.lbl7.Size = new System.Drawing.Size(579, 40);
-            this.lbl7.TabIndex = 7;
-            this.lbl7.Text = "7. Nút Tạm Ngưng, để tạm dừng quá trình đi tuần. Sau khi click nút đổi thành \r\nnú" +
-    "t Tiếp Tục, để khi click sẽ tiếp tục hành trình đi tuần.";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(71, 165);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(229, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "3. Nút Khởi tạo để tạo bàn cờ.";
-            // 
-            // lblHeading1
-            // 
-            this.lblHeading1.AutoSize = true;
-            this.lblHeading1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHeading1.Location = new System.Drawing.Point(182, 23);
-            this.lblHeading1.Name = "lblHeading1";
-            this.lblHeading1.Size = new System.Drawing.Size(431, 32);
-            this.lblHeading1.TabIndex = 5;
-            this.lblHeading1.Text = "Luật chơi mô phỏng mã đi tuần";
-            // 
-            // gBoxCachChoi
-            // 
-            this.gBoxCachChoi.Controls.Add(this.lbl1_cc);
-            this.gBoxCachChoi.Controls.Add(this.lbl5_cc);
-            this.gBoxCachChoi.Controls.Add(this.lbl4_cc);
-            this.gBoxCachChoi.Controls.Add(this.lbl6_cc);
-            this.gBoxCachChoi.Controls.Add(this.lbl3_cc);
-            this.gBoxCachChoi.Controls.Add(this.lbl2_cc);
-            this.gBoxCachChoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxCachChoi.Location = new System.Drawing.Point(23, 241);
-            this.gBoxCachChoi.Name = "gBoxCachChoi";
-            this.gBoxCachChoi.Size = new System.Drawing.Size(688, 295);
-            this.gBoxCachChoi.TabIndex = 12;
-            this.gBoxCachChoi.TabStop = false;
-            this.gBoxCachChoi.Text = "Cách chơi:";
-            // 
-            // gBoxDKT
-            // 
-            this.gBoxDKT.Controls.Add(this.lbl1_dk);
-            this.gBoxDKT.Controls.Add(this.lbl3_dk);
-            this.gBoxDKT.Controls.Add(this.lbl2_dk);
-            this.gBoxDKT.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxDKT.Location = new System.Drawing.Point(23, 558);
-            this.gBoxDKT.Name = "gBoxDKT";
-            this.gBoxDKT.Size = new System.Drawing.Size(688, 193);
-            this.gBoxDKT.TabIndex = 13;
-            this.gBoxDKT.TabStop = false;
-            this.gBoxDKT.Text = "Điều kiện thắng:";
-            // 
-            // lbl1_dk
-            // 
-            this.lbl1_dk.AutoSize = true;
-            this.lbl1_dk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1_dk.Location = new System.Drawing.Point(38, 23);
-            this.lbl1_dk.Name = "lbl1_dk";
-            this.lbl1_dk.Size = new System.Drawing.Size(450, 40);
-            this.lbl1_dk.TabIndex = 11;
-            this.lbl1_dk.Text = "- Người chơi hoặc Máy ai có số điểm lớn hơn phân nữa số ô\r\ncủa bàn cờ thì chiến t" +
-    "hắng.\r\n";
-            // 
-            // lbl3_dk
-            // 
-            this.lbl3_dk.AutoSize = true;
-            this.lbl3_dk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3_dk.Location = new System.Drawing.Point(38, 117);
-            this.lbl3_dk.Name = "lbl3_dk";
-            this.lbl3_dk.Size = new System.Drawing.Size(486, 40);
-            this.lbl3_dk.TabIndex = 8;
-            this.lbl3_dk.Text = "- Hoặc Nếu Người chơi hoặc Máy đi vào ô không có đường đi và \r\nkhông còn lượt qua" +
-    "y lui thì người còn lại chiến thắng.";
-            // 
-            // lbl2_dk
-            // 
-            this.lbl2_dk.AutoSize = true;
-            this.lbl2_dk.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2_dk.Location = new System.Drawing.Point(38, 80);
-            this.lbl2_dk.Name = "lbl2_dk";
-            this.lbl2_dk.Size = new System.Drawing.Size(484, 20);
-            this.lbl2_dk.TabIndex = 9;
-            this.lbl2_dk.Text = "- Hoặc Nếu đi hết bàn cờ, Ai có số điểm lớn hơn thì chiến thắng.\r\n";
-            // 
-            // rbtnMoPhong
-            // 
-            this.rbtnMoPhong.AutoSize = true;
-            this.rbtnMoPhong.Location = new System.Drawing.Point(77, 38);
-            this.rbtnMoPhong.Name = "rbtnMoPhong";
-            this.rbtnMoPhong.Size = new System.Drawing.Size(113, 24);
-            this.rbtnMoPhong.TabIndex = 0;
-            this.rbtnMoPhong.Text = "Mô Phỏng";
-            this.rbtnMoPhong.UseVisualStyleBackColor = true;
-            this.rbtnMoPhong.CheckedChanged += new System.EventHandler(this.rbtnMoPhong_CheckedChanged);
-            // 
-            // rbtnDoiKhang
-            // 
-            this.rbtnDoiKhang.AutoSize = true;
-            this.rbtnDoiKhang.Location = new System.Drawing.Point(468, 38);
-            this.rbtnDoiKhang.Name = "rbtnDoiKhang";
-            this.rbtnDoiKhang.Size = new System.Drawing.Size(171, 24);
-            this.rbtnDoiKhang.TabIndex = 1;
-            this.rbtnDoiKhang.Text = "Game Đối Kháng";
-            this.rbtnDoiKhang.UseVisualStyleBackColor = true;
-            this.rbtnDoiKhang.CheckedChanged += new System.EventHandler(this.rbtnDoiKhang_CheckedChanged);
+            this.lbl5_cn.AutoSize = true;
+            this.lbl5_cn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl5_cn.Location = new System.Drawing.Point(379, 88);
+            this.lbl5_cn.Name = "lbl5_cn";
+            this.lbl5_cn.Size = new System.Drawing.Size(271, 40);
+            this.lbl5_cn.TabIndex = 14;
+            this.lbl5_cn.Text = "5. Nút Lưu kết quả, lưu lại thời gian \r\nđã hoàn thành trò chơi.";
             // 
             // frm_LuatChoi
             // 
@@ -611,10 +632,10 @@
             this.panelMoPhong.PerformLayout();
             this.panelDoiKhang.ResumeLayout(false);
             this.panelDoiKhang.PerformLayout();
-            this.gBoxCachChoi.ResumeLayout(false);
-            this.gBoxCachChoi.PerformLayout();
             this.gBoxDKT.ResumeLayout(false);
             this.gBoxDKT.PerformLayout();
+            this.gBoxCachChoi.ResumeLayout(false);
+            this.gBoxCachChoi.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -650,10 +671,9 @@
         private System.Windows.Forms.Label lbl2_cc;
         private System.Windows.Forms.Label lbl3_cc;
         private System.Windows.Forms.Label lbl4_cc;
-        private System.Windows.Forms.Label lbl5_cc;
         private System.Windows.Forms.Label lbl3_cn;
         private System.Windows.Forms.Label lblDoiKhang;
-        private System.Windows.Forms.Label lbl6_cc;
+        private System.Windows.Forms.Label lbl5_cc;
         private System.Windows.Forms.Label lbl1_cn;
         private System.Windows.Forms.Label lbl4_cn;
         private System.Windows.Forms.Label lbl2_cn;
@@ -666,5 +686,8 @@
         private System.Windows.Forms.Label lbl1_dk;
         private System.Windows.Forms.Label lbl3_dk;
         private System.Windows.Forms.Label lbl2_dk;
+        private System.Windows.Forms.Label lbl6_cc;
+        private System.Windows.Forms.Label lbl7_cc;
+        private System.Windows.Forms.Label lbl5_cn;
     }
 }

@@ -45,9 +45,9 @@
             this.lblSpeed = new System.Windows.Forms.Label();
             this.txt_td_j = new System.Windows.Forms.TextBox();
             this.gBoxGhiChu = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbl2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
-            this.lblghichu1 = new System.Windows.Forms.Label();
-            this.pic1 = new System.Windows.Forms.PictureBox();
             this.btnLuuTru = new System.Windows.Forms.Button();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnNgung = new System.Windows.Forms.Button();
@@ -76,11 +76,11 @@
             this.lbl_TongSoO = new System.Windows.Forms.Label();
             this.lbl_Text_BanCo = new System.Windows.Forms.Label();
             this.lblBanCo = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Menu_CN.SuspendLayout();
             this.panel_TT.SuspendLayout();
             this.gBox_ChucNang.SuspendLayout();
             this.gBoxGhiChu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel_ChiSo.SuspendLayout();
             this.gBoxTT.SuspendLayout();
@@ -147,13 +147,14 @@
             this.panel_TT.Controls.Add(this.lblHeading);
             this.panel_TT.Location = new System.Drawing.Point(-2, 31);
             this.panel_TT.Name = "panel_TT";
-            this.panel_TT.Size = new System.Drawing.Size(363, 1024);
+            this.panel_TT.Size = new System.Drawing.Size(408, 1024);
             this.panel_TT.TabIndex = 2;
             // 
             // gBox_ChucNang
             // 
             this.gBox_ChucNang.Controls.Add(this.txt_td_i);
             this.gBox_ChucNang.Controls.Add(this.lbl_td_i);
+            this.gBox_ChucNang.Controls.Add(this.label2);
             this.gBox_ChucNang.Controls.Add(this.cmbSpeed);
             this.gBox_ChucNang.Controls.Add(this.lbl_td_j);
             this.gBox_ChucNang.Controls.Add(this.lblSpeed);
@@ -168,7 +169,7 @@
             this.gBox_ChucNang.Controls.Add(this.lblnxn);
             this.gBox_ChucNang.Location = new System.Drawing.Point(10, 343);
             this.gBox_ChucNang.Name = "gBox_ChucNang";
-            this.gBox_ChucNang.Size = new System.Drawing.Size(336, 674);
+            this.gBox_ChucNang.Size = new System.Drawing.Size(391, 674);
             this.gBox_ChucNang.TabIndex = 2;
             this.gBox_ChucNang.TabStop = false;
             this.gBox_ChucNang.Text = "Menu Chức Năng:";
@@ -176,7 +177,7 @@
             // txt_td_i
             // 
             this.txt_td_i.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_td_i.Location = new System.Drawing.Point(7, 177);
+            this.txt_td_i.Location = new System.Drawing.Point(35, 175);
             this.txt_td_i.Name = "txt_td_i";
             this.txt_td_i.Size = new System.Drawing.Size(125, 27);
             this.txt_td_i.TabIndex = 3;
@@ -185,7 +186,7 @@
             // 
             this.lbl_td_i.AutoSize = true;
             this.lbl_td_i.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_td_i.Location = new System.Drawing.Point(7, 154);
+            this.lbl_td_i.Location = new System.Drawing.Point(35, 152);
             this.lbl_td_i.Name = "lbl_td_i";
             this.lbl_td_i.Size = new System.Drawing.Size(113, 20);
             this.lbl_td_i.TabIndex = 2;
@@ -202,7 +203,7 @@
             "2",
             "3",
             "4"});
-            this.cmbSpeed.Location = new System.Drawing.Point(10, 243);
+            this.cmbSpeed.Location = new System.Drawing.Point(39, 243);
             this.cmbSpeed.Name = "cmbSpeed";
             this.cmbSpeed.Size = new System.Drawing.Size(321, 28);
             this.cmbSpeed.TabIndex = 3;
@@ -212,7 +213,7 @@
             // 
             this.lbl_td_j.AutoSize = true;
             this.lbl_td_j.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_td_j.Location = new System.Drawing.Point(190, 154);
+            this.lbl_td_j.Location = new System.Drawing.Point(218, 152);
             this.lbl_td_j.Name = "lbl_td_j";
             this.lbl_td_j.Size = new System.Drawing.Size(113, 20);
             this.lbl_td_j.TabIndex = 4;
@@ -222,7 +223,7 @@
             // 
             this.lblSpeed.AutoSize = true;
             this.lblSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSpeed.Location = new System.Drawing.Point(6, 216);
+            this.lblSpeed.Location = new System.Drawing.Point(35, 216);
             this.lblSpeed.Name = "lblSpeed";
             this.lblSpeed.Size = new System.Drawing.Size(111, 20);
             this.lblSpeed.TabIndex = 3;
@@ -231,58 +232,58 @@
             // txt_td_j
             // 
             this.txt_td_j.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txt_td_j.Location = new System.Drawing.Point(190, 177);
+            this.txt_td_j.Location = new System.Drawing.Point(218, 175);
             this.txt_td_j.Name = "txt_td_j";
             this.txt_td_j.Size = new System.Drawing.Size(125, 27);
             this.txt_td_j.TabIndex = 5;
             // 
             // gBoxGhiChu
             // 
+            this.gBoxGhiChu.Controls.Add(this.label1);
+            this.gBoxGhiChu.Controls.Add(this.lbl2);
             this.gBoxGhiChu.Controls.Add(this.lbl1);
-            this.gBoxGhiChu.Controls.Add(this.lblghichu1);
-            this.gBoxGhiChu.Controls.Add(this.pic1);
             this.gBoxGhiChu.Location = new System.Drawing.Point(10, 390);
             this.gBoxGhiChu.Name = "gBoxGhiChu";
-            this.gBoxGhiChu.Size = new System.Drawing.Size(321, 277);
+            this.gBoxGhiChu.Size = new System.Drawing.Size(353, 277);
             this.gBoxGhiChu.TabIndex = 11;
             this.gBoxGhiChu.TabStop = false;
             this.gBoxGhiChu.Text = "Ghi Chú:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(6, 125);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(286, 40);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "- Tọa độ j là các chữ số: 1 -> 10.\r\n\r\n";
+            // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Location = new System.Drawing.Point(3, 85);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(283, 40);
+            this.lbl2.TabIndex = 5;
+            this.lbl2.Text = "- Tọa độ i là các chữ cái: A -> J.\r\n\r\n";
             // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.Location = new System.Drawing.Point(45, 119);
+            this.lbl1.Location = new System.Drawing.Point(8, 34);
             this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(221, 40);
+            this.lbl1.Size = new System.Drawing.Size(297, 40);
             this.lbl1.TabIndex = 4;
-            this.lbl1.Text = "Máy phải đi hết bàn cờ \r\ntheo luật đi của quân mã.\r\n";
-            // 
-            // lblghichu1
-            // 
-            this.lblghichu1.AutoSize = true;
-            this.lblghichu1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblghichu1.Location = new System.Drawing.Point(120, 47);
-            this.lblghichu1.Name = "lblghichu1";
-            this.lblghichu1.Size = new System.Drawing.Size(155, 20);
-            this.lblghichu1.TabIndex = 3;
-            this.lblghichu1.Text = "Quân cờ của Máy";
-            // 
-            // pic1
-            // 
-            this.pic1.Image = global::MaDITuan.Properties.Resources.ma_do;
-            this.pic1.Location = new System.Drawing.Point(10, 21);
-            this.pic1.Name = "pic1";
-            this.pic1.Size = new System.Drawing.Size(88, 73);
-            this.pic1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pic1.TabIndex = 3;
-            this.pic1.TabStop = false;
+            this.lbl1.Text = "- Máy phải đi hết bàn cờ theo luật \r\nđi của quân mã.\r\n";
             // 
             // btnLuuTru
             // 
             this.btnLuuTru.BackColor = System.Drawing.Color.White;
             this.btnLuuTru.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuuTru.Location = new System.Drawing.Point(204, 343);
+            this.btnLuuTru.Location = new System.Drawing.Point(234, 342);
             this.btnLuuTru.Name = "btnLuuTru";
             this.btnLuuTru.Size = new System.Drawing.Size(125, 35);
             this.btnLuuTru.TabIndex = 10;
@@ -294,7 +295,7 @@
             // 
             this.btnLamMoi.BackColor = System.Drawing.Color.White;
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Location = new System.Drawing.Point(204, 290);
+            this.btnLamMoi.Location = new System.Drawing.Point(234, 289);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(125, 35);
             this.btnLamMoi.TabIndex = 9;
@@ -306,7 +307,7 @@
             // 
             this.btnNgung.BackColor = System.Drawing.Color.White;
             this.btnNgung.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNgung.Location = new System.Drawing.Point(9, 343);
+            this.btnNgung.Location = new System.Drawing.Point(39, 342);
             this.btnNgung.Name = "btnNgung";
             this.btnNgung.Size = new System.Drawing.Size(125, 35);
             this.btnNgung.TabIndex = 8;
@@ -318,7 +319,7 @@
             // 
             this.btnBatDau.BackColor = System.Drawing.Color.White;
             this.btnBatDau.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBatDau.Location = new System.Drawing.Point(9, 290);
+            this.btnBatDau.Location = new System.Drawing.Point(39, 289);
             this.btnBatDau.Name = "btnBatDau";
             this.btnBatDau.Size = new System.Drawing.Size(125, 35);
             this.btnBatDau.TabIndex = 7;
@@ -330,9 +331,9 @@
             // 
             this.btnKhoiTao.BackColor = System.Drawing.Color.White;
             this.btnKhoiTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoiTao.Location = new System.Drawing.Point(6, 106);
+            this.btnKhoiTao.Location = new System.Drawing.Point(35, 102);
             this.btnKhoiTao.Name = "btnKhoiTao";
-            this.btnKhoiTao.Size = new System.Drawing.Size(320, 35);
+            this.btnKhoiTao.Size = new System.Drawing.Size(324, 35);
             this.btnKhoiTao.TabIndex = 6;
             this.btnKhoiTao.Text = "Khởi Tạo";
             this.btnKhoiTao.UseVisualStyleBackColor = false;
@@ -341,7 +342,7 @@
             // txtnxn
             // 
             this.txtnxn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtnxn.Location = new System.Drawing.Point(6, 52);
+            this.txtnxn.Location = new System.Drawing.Point(35, 48);
             this.txtnxn.Name = "txtnxn";
             this.txtnxn.Size = new System.Drawing.Size(324, 27);
             this.txtnxn.TabIndex = 1;
@@ -350,7 +351,7 @@
             // 
             this.lblnxn.AutoSize = true;
             this.lblnxn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblnxn.Location = new System.Drawing.Point(6, 29);
+            this.lblnxn.Location = new System.Drawing.Point(35, 25);
             this.lblnxn.Name = "lblnxn";
             this.lblnxn.Size = new System.Drawing.Size(204, 20);
             this.lblnxn.TabIndex = 0;
@@ -361,7 +362,7 @@
             this.pictureBox1.Image = global::MaDITuan.Properties.Resources.Can_A_Knight_Jump_Over_Enemy_Pieces_scaled;
             this.pictureBox1.Location = new System.Drawing.Point(19, 76);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(317, 261);
+            this.pictureBox1.Size = new System.Drawing.Size(354, 261);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -371,7 +372,7 @@
             this.lblHeading.AutoSize = true;
             this.lblHeading.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblHeading.ForeColor = System.Drawing.Color.MediumBlue;
-            this.lblHeading.Location = new System.Drawing.Point(20, 19);
+            this.lblHeading.Location = new System.Drawing.Point(38, 26);
             this.lblHeading.Name = "lblHeading";
             this.lblHeading.Size = new System.Drawing.Size(324, 38);
             this.lblHeading.TabIndex = 0;
@@ -381,9 +382,9 @@
             // 
             this.panel_BanCo.BackColor = System.Drawing.Color.Transparent;
             this.panel_BanCo.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.panel_BanCo.Location = new System.Drawing.Point(367, 29);
+            this.panel_BanCo.Location = new System.Drawing.Point(462, 29);
             this.panel_BanCo.Name = "panel_BanCo";
-            this.panel_BanCo.Size = new System.Drawing.Size(1179, 1024);
+            this.panel_BanCo.Size = new System.Drawing.Size(1084, 1024);
             this.panel_BanCo.TabIndex = 3;
             // 
             // timer1
@@ -431,7 +432,7 @@
             // lbl_Text_Kq
             // 
             this.lbl_Text_Kq.AutoSize = true;
-            this.lbl_Text_Kq.Location = new System.Drawing.Point(96, 298);
+            this.lbl_Text_Kq.Location = new System.Drawing.Point(112, 298);
             this.lbl_Text_Kq.Name = "lbl_Text_Kq";
             this.lbl_Text_Kq.Size = new System.Drawing.Size(54, 20);
             this.lbl_Text_Kq.TabIndex = 12;
@@ -569,6 +570,17 @@
             this.lblBanCo.TabIndex = 0;
             this.lblBanCo.Text = "Bàn Cờ: ";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label2.Location = new System.Drawing.Point(28, -299);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(324, 38);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Chế Độ Máy Chơi";
+            // 
             // frm_MPmadituan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -594,7 +606,6 @@
             this.gBox_ChucNang.PerformLayout();
             this.gBoxGhiChu.ResumeLayout(false);
             this.gBoxGhiChu.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pic1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel_ChiSo.ResumeLayout(false);
             this.gBoxTT.ResumeLayout(false);
@@ -625,8 +636,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.GroupBox gBoxGhiChu;
-        private System.Windows.Forms.Label lblghichu1;
-        private System.Windows.Forms.PictureBox pic1;
         private System.Windows.Forms.Button btnLuuTru;
         private System.Windows.Forms.Button btnLamMoi;
         private System.Windows.Forms.Button btnNgung;
@@ -653,5 +662,8 @@
         private System.Windows.Forms.Label lbl_Text_Kq;
         private System.Windows.Forms.Label lbl_Ketqua;
         private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.Label label2;
     }
 }

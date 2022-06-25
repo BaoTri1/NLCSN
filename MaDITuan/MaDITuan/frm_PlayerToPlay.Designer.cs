@@ -1,6 +1,6 @@
 ﻿namespace MaDITuan
 {
-    partial class frm_FightingGame
+    partial class frm_PlayerToPlay
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_FightingGame));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_PlayerToPlay));
             this.Menu_CN = new System.Windows.Forms.MenuStrip();
             this.chếĐộChơiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.môPhỏngMãĐiTuầnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -40,7 +40,7 @@
             this.gBox_ChucNang = new System.Windows.Forms.GroupBox();
             this.cmbBanCo = new System.Windows.Forms.ComboBox();
             this.gBoxLuatchoi = new System.Windows.Forms.GroupBox();
-            this.lblGhiChu3 = new System.Windows.Forms.Label();
+            this.lbl1 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnKhoiTao = new System.Windows.Forms.Button();
             this.txtName = new System.Windows.Forms.TextBox();
@@ -51,24 +51,25 @@
             this.panel_BanCo = new System.Windows.Forms.Panel();
             this.panelTT = new System.Windows.Forms.Panel();
             this.gBoxTTVD = new System.Windows.Forms.GroupBox();
-            this.gBoxQC = new System.Windows.Forms.GroupBox();
-            this.gBoxDongHo = new System.Windows.Forms.GroupBox();
-            this.lblGiay = new System.Windows.Forms.Label();
-            this.lblhaicham = new System.Windows.Forms.Label();
-            this.lblPhut = new System.Windows.Forms.Label();
             this.gBoxLuotdi = new System.Windows.Forms.GroupBox();
+            this.btnLuu = new System.Windows.Forms.Button();
             this.txt_Diem = new System.Windows.Forms.TextBox();
             this.lblDiem = new System.Windows.Forms.Label();
             this.txt_Name = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.picHoanDoi = new System.Windows.Forms.PictureBox();
-            this.gBoxKQ = new System.Windows.Forms.GroupBox();
-            this.lblKQ = new System.Windows.Forms.Label();
-            this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnLuu = new System.Windows.Forms.Button();
+            this.gBoxQC = new System.Windows.Forms.GroupBox();
             this.lbl_Giay_KL = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lbl_Phut_KL = new System.Windows.Forms.Label();
+            this.gBoxDongHo = new System.Windows.Forms.GroupBox();
+            this.lblGiay = new System.Windows.Forms.Label();
+            this.lblhaicham = new System.Windows.Forms.Label();
+            this.lblPhut = new System.Windows.Forms.Label();
+            this.gBoxKQ = new System.Windows.Forms.GroupBox();
+            this.lblKQ = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.lbl2 = new System.Windows.Forms.Label();
             this.Menu_CN.SuspendLayout();
             this.panel_TT.SuspendLayout();
             this.gBox_ChucNang.SuspendLayout();
@@ -76,10 +77,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).BeginInit();
             this.panelTT.SuspendLayout();
             this.gBoxTTVD.SuspendLayout();
-            this.gBoxQC.SuspendLayout();
-            this.gBoxDongHo.SuspendLayout();
             this.gBoxLuotdi.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHoanDoi)).BeginInit();
+            this.gBoxQC.SuspendLayout();
+            this.gBoxDongHo.SuspendLayout();
             this.gBoxKQ.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -177,7 +178,8 @@
             // 
             // gBoxLuatchoi
             // 
-            this.gBoxLuatchoi.Controls.Add(this.lblGhiChu3);
+            this.gBoxLuatchoi.Controls.Add(this.lbl2);
+            this.gBoxLuatchoi.Controls.Add(this.lbl1);
             this.gBoxLuatchoi.Location = new System.Drawing.Point(-7, 314);
             this.gBoxLuatchoi.Name = "gBoxLuatchoi";
             this.gBoxLuatchoi.Size = new System.Drawing.Size(343, 353);
@@ -185,16 +187,16 @@
             this.gBoxLuatchoi.TabStop = false;
             this.gBoxLuatchoi.Text = "Luật Chơi:";
             // 
-            // lblGhiChu3
+            // lbl1
             // 
-            this.lblGhiChu3.AutoSize = true;
-            this.lblGhiChu3.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblGhiChu3.Location = new System.Drawing.Point(68, 37);
-            this.lblGhiChu3.Name = "lblGhiChu3";
-            this.lblGhiChu3.Size = new System.Drawing.Size(232, 180);
-            this.lblGhiChu3.TabIndex = 6;
-            this.lblGhiChu3.Text = "Người chơi di chuyển \r\n        quân cờ theo cách\r\n di chuyển quân mã \r\n        tr" +
-    "ong cờ vua sao \r\ncho đi hết bàn cờ.\r\n\r\n";
+            this.lbl1.AutoSize = true;
+            this.lbl1.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl1.Location = new System.Drawing.Point(11, 32);
+            this.lbl1.Name = "lbl1";
+            this.lbl1.Size = new System.Drawing.Size(300, 150);
+            this.lbl1.TabIndex = 6;
+            this.lbl1.Text = "Người chơi di chuyển quân cờ \r\ntheo cách di chuyển quân mã \r\ntrong cờ vua sao cho" +
+    " đi hết \r\nbàn cờ.\r\n\r\n";
             // 
             // btnLamMoi
             // 
@@ -305,6 +307,78 @@
             this.gBoxTTVD.TabStop = false;
             this.gBoxTTVD.Text = "Thông tin ván chơi:";
             // 
+            // gBoxLuotdi
+            // 
+            this.gBoxLuotdi.Controls.Add(this.btnLuu);
+            this.gBoxLuotdi.Controls.Add(this.txt_Diem);
+            this.gBoxLuotdi.Controls.Add(this.lblDiem);
+            this.gBoxLuotdi.Controls.Add(this.txt_Name);
+            this.gBoxLuotdi.Controls.Add(this.lblName);
+            this.gBoxLuotdi.Controls.Add(this.picHoanDoi);
+            this.gBoxLuotdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxLuotdi.Location = new System.Drawing.Point(17, 515);
+            this.gBoxLuotdi.Name = "gBoxLuotdi";
+            this.gBoxLuotdi.Size = new System.Drawing.Size(550, 461);
+            this.gBoxLuotdi.TabIndex = 2;
+            this.gBoxLuotdi.TabStop = false;
+            this.gBoxLuotdi.Text = "Lượt đi:";
+            // 
+            // btnLuu
+            // 
+            this.btnLuu.BackColor = System.Drawing.SystemColors.Window;
+            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLuu.Location = new System.Drawing.Point(11, 240);
+            this.btnLuu.Name = "btnLuu";
+            this.btnLuu.Size = new System.Drawing.Size(483, 50);
+            this.btnLuu.TabIndex = 5;
+            this.btnLuu.Text = "Lưu kết quả";
+            this.btnLuu.UseVisualStyleBackColor = false;
+            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            // 
+            // txt_Diem
+            // 
+            this.txt_Diem.Location = new System.Drawing.Point(11, 149);
+            this.txt_Diem.Name = "txt_Diem";
+            this.txt_Diem.ReadOnly = true;
+            this.txt_Diem.Size = new System.Drawing.Size(240, 27);
+            this.txt_Diem.TabIndex = 4;
+            // 
+            // lblDiem
+            // 
+            this.lblDiem.AutoSize = true;
+            this.lblDiem.Location = new System.Drawing.Point(7, 117);
+            this.lblDiem.Name = "lblDiem";
+            this.lblDiem.Size = new System.Drawing.Size(112, 20);
+            this.lblDiem.TabIndex = 3;
+            this.lblDiem.Text = "Điểm hiện tại:";
+            // 
+            // txt_Name
+            // 
+            this.txt_Name.Location = new System.Drawing.Point(10, 65);
+            this.txt_Name.Name = "txt_Name";
+            this.txt_Name.ReadOnly = true;
+            this.txt_Name.Size = new System.Drawing.Size(241, 27);
+            this.txt_Name.TabIndex = 2;
+            // 
+            // lblName
+            // 
+            this.lblName.AutoSize = true;
+            this.lblName.Location = new System.Drawing.Point(6, 32);
+            this.lblName.Name = "lblName";
+            this.lblName.Size = new System.Drawing.Size(71, 20);
+            this.lblName.TabIndex = 1;
+            this.lblName.Text = "Tên NC:";
+            // 
+            // picHoanDoi
+            // 
+            this.picHoanDoi.Image = global::MaDITuan.Properties.Resources.ma_do;
+            this.picHoanDoi.Location = new System.Drawing.Point(273, 14);
+            this.picHoanDoi.Name = "picHoanDoi";
+            this.picHoanDoi.Size = new System.Drawing.Size(221, 205);
+            this.picHoanDoi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picHoanDoi.TabIndex = 0;
+            this.picHoanDoi.TabStop = false;
+            // 
             // gBoxQC
             // 
             this.gBoxQC.Controls.Add(this.lbl_Giay_KL);
@@ -317,6 +391,39 @@
             this.gBoxQC.TabIndex = 0;
             this.gBoxQC.TabStop = false;
             this.gBoxQC.Text = "Kỷ lục cá nhân:";
+            // 
+            // lbl_Giay_KL
+            // 
+            this.lbl_Giay_KL.AutoSize = true;
+            this.lbl_Giay_KL.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Giay_KL.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Giay_KL.Location = new System.Drawing.Point(316, 30);
+            this.lbl_Giay_KL.Name = "lbl_Giay_KL";
+            this.lbl_Giay_KL.Size = new System.Drawing.Size(81, 62);
+            this.lbl_Giay_KL.TabIndex = 5;
+            this.lbl_Giay_KL.Text = "00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkOliveGreen;
+            this.label2.Location = new System.Drawing.Point(252, 30);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 62);
+            this.label2.TabIndex = 4;
+            this.label2.Text = ":";
+            // 
+            // lbl_Phut_KL
+            // 
+            this.lbl_Phut_KL.AutoSize = true;
+            this.lbl_Phut_KL.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_Phut_KL.ForeColor = System.Drawing.Color.Black;
+            this.lbl_Phut_KL.Location = new System.Drawing.Point(146, 30);
+            this.lbl_Phut_KL.Name = "lbl_Phut_KL";
+            this.lbl_Phut_KL.Size = new System.Drawing.Size(83, 62);
+            this.lbl_Phut_KL.TabIndex = 3;
+            this.lbl_Phut_KL.Text = "00";
             // 
             // gBoxDongHo
             // 
@@ -364,66 +471,6 @@
             this.lblPhut.TabIndex = 0;
             this.lblPhut.Text = "00";
             // 
-            // gBoxLuotdi
-            // 
-            this.gBoxLuotdi.Controls.Add(this.btnLuu);
-            this.gBoxLuotdi.Controls.Add(this.txt_Diem);
-            this.gBoxLuotdi.Controls.Add(this.lblDiem);
-            this.gBoxLuotdi.Controls.Add(this.txt_Name);
-            this.gBoxLuotdi.Controls.Add(this.lblName);
-            this.gBoxLuotdi.Controls.Add(this.picHoanDoi);
-            this.gBoxLuotdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBoxLuotdi.Location = new System.Drawing.Point(17, 515);
-            this.gBoxLuotdi.Name = "gBoxLuotdi";
-            this.gBoxLuotdi.Size = new System.Drawing.Size(550, 461);
-            this.gBoxLuotdi.TabIndex = 2;
-            this.gBoxLuotdi.TabStop = false;
-            this.gBoxLuotdi.Text = "Lượt đi:";
-            // 
-            // txt_Diem
-            // 
-            this.txt_Diem.Location = new System.Drawing.Point(11, 149);
-            this.txt_Diem.Name = "txt_Diem";
-            this.txt_Diem.ReadOnly = true;
-            this.txt_Diem.Size = new System.Drawing.Size(240, 27);
-            this.txt_Diem.TabIndex = 4;
-            // 
-            // lblDiem
-            // 
-            this.lblDiem.AutoSize = true;
-            this.lblDiem.Location = new System.Drawing.Point(7, 117);
-            this.lblDiem.Name = "lblDiem";
-            this.lblDiem.Size = new System.Drawing.Size(112, 20);
-            this.lblDiem.TabIndex = 3;
-            this.lblDiem.Text = "Điểm hiện tại:";
-            // 
-            // txt_Name
-            // 
-            this.txt_Name.Location = new System.Drawing.Point(10, 65);
-            this.txt_Name.Name = "txt_Name";
-            this.txt_Name.ReadOnly = true;
-            this.txt_Name.Size = new System.Drawing.Size(241, 27);
-            this.txt_Name.TabIndex = 2;
-            // 
-            // lblName
-            // 
-            this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(6, 32);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(71, 20);
-            this.lblName.TabIndex = 1;
-            this.lblName.Text = "Tên NC:";
-            // 
-            // picHoanDoi
-            // 
-            this.picHoanDoi.Image = global::MaDITuan.Properties.Resources.ma_do;
-            this.picHoanDoi.Location = new System.Drawing.Point(273, 14);
-            this.picHoanDoi.Name = "picHoanDoi";
-            this.picHoanDoi.Size = new System.Drawing.Size(221, 205);
-            this.picHoanDoi.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picHoanDoi.TabIndex = 0;
-            this.picHoanDoi.TabStop = false;
-            // 
             // gBoxKQ
             // 
             this.gBoxKQ.Controls.Add(this.lblKQ);
@@ -440,7 +487,7 @@
             this.lblKQ.AutoSize = true;
             this.lblKQ.Font = new System.Drawing.Font("Showcard Gothic", 19.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblKQ.ForeColor = System.Drawing.Color.DeepPink;
-            this.lblKQ.Location = new System.Drawing.Point(21, 46);
+            this.lblKQ.Location = new System.Drawing.Point(73, 43);
             this.lblKQ.Name = "lblKQ";
             this.lblKQ.Size = new System.Drawing.Size(313, 42);
             this.lblKQ.TabIndex = 6;
@@ -451,52 +498,17 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // btnLuu
+            // lbl2
             // 
-            this.btnLuu.BackColor = System.Drawing.SystemColors.Window;
-            this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(11, 240);
-            this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(483, 50);
-            this.btnLuu.TabIndex = 5;
-            this.btnLuu.Text = "Lưu kết quả";
-            this.btnLuu.UseVisualStyleBackColor = false;
-            this.btnLuu.Click += new System.EventHandler(this.btnLuu_Click);
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Location = new System.Drawing.Point(11, 171);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(304, 30);
+            this.lbl2.TabIndex = 7;
+            this.lbl2.Text = "Mỗi ô chỉ đi qua được một lần.\r\n";
             // 
-            // lbl_Giay_KL
-            // 
-            this.lbl_Giay_KL.AutoSize = true;
-            this.lbl_Giay_KL.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Giay_KL.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Giay_KL.Location = new System.Drawing.Point(316, 30);
-            this.lbl_Giay_KL.Name = "lbl_Giay_KL";
-            this.lbl_Giay_KL.Size = new System.Drawing.Size(81, 62);
-            this.lbl_Giay_KL.TabIndex = 5;
-            this.lbl_Giay_KL.Text = "00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkOliveGreen;
-            this.label2.Location = new System.Drawing.Point(252, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 62);
-            this.label2.TabIndex = 4;
-            this.label2.Text = ":";
-            // 
-            // lbl_Phut_KL
-            // 
-            this.lbl_Phut_KL.AutoSize = true;
-            this.lbl_Phut_KL.Font = new System.Drawing.Font("Modern No. 20", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_Phut_KL.ForeColor = System.Drawing.Color.Black;
-            this.lbl_Phut_KL.Location = new System.Drawing.Point(146, 30);
-            this.lbl_Phut_KL.Name = "lbl_Phut_KL";
-            this.lbl_Phut_KL.Size = new System.Drawing.Size(83, 62);
-            this.lbl_Phut_KL.TabIndex = 3;
-            this.lbl_Phut_KL.Text = "00";
-            // 
-            // frm_FightingGame
+            // frm_PlayerToPlay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -508,7 +520,7 @@
             this.Controls.Add(this.Menu_CN);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu_CN;
-            this.Name = "frm_FightingGame";
+            this.Name = "frm_PlayerToPlay";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Đối Kháng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -524,13 +536,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.picAvatar)).EndInit();
             this.panelTT.ResumeLayout(false);
             this.gBoxTTVD.ResumeLayout(false);
+            this.gBoxLuotdi.ResumeLayout(false);
+            this.gBoxLuotdi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHoanDoi)).EndInit();
             this.gBoxQC.ResumeLayout(false);
             this.gBoxQC.PerformLayout();
             this.gBoxDongHo.ResumeLayout(false);
             this.gBoxDongHo.PerformLayout();
-            this.gBoxLuotdi.ResumeLayout(false);
-            this.gBoxLuotdi.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picHoanDoi)).EndInit();
             this.gBoxKQ.ResumeLayout(false);
             this.gBoxKQ.PerformLayout();
             this.ResumeLayout(false);
@@ -557,7 +569,7 @@
         private System.Windows.Forms.PictureBox picAvatar;
         private System.Windows.Forms.Label lblHeading;
         private System.Windows.Forms.ComboBox cmbBanCo;
-        private System.Windows.Forms.Label lblGhiChu3;
+        private System.Windows.Forms.Label lbl1;
         private System.Windows.Forms.Panel panel_BanCo;
         private System.Windows.Forms.Panel panelTT;
         private System.Windows.Forms.GroupBox gBoxTTVD;
@@ -579,5 +591,6 @@
         private System.Windows.Forms.Label lbl_Giay_KL;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Phut_KL;
+        private System.Windows.Forms.Label lbl2;
     }
 }

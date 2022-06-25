@@ -11,7 +11,7 @@ using System.Windows.Forms;
 
 namespace MaDITuan
 {
-    public partial class frm_FightingGame : Form
+    public partial class frm_PlayerToPlay : Form
     {
         private System.Media.SoundPlayer soundplayer;
         private String sound_wait = Application.StartupPath + "\\Music\\action-110116.wav";
@@ -19,7 +19,7 @@ namespace MaDITuan
 
         const String PLAYER = "Player";
 
-        private FightingGame game;
+        private PlayerToPlay game;
 
         private int n = 0;
 
@@ -43,10 +43,10 @@ namespace MaDITuan
             set => Stop = value; 
         }
 
-        public frm_FightingGame()
+        public frm_PlayerToPlay()
         {
             InitializeComponent();
-            Stop1 = true; 
+            Stop1 = false; 
         }
 
         private void frm_FightingGame_Load(object sender, EventArgs e)
@@ -65,6 +65,7 @@ namespace MaDITuan
             }
 
             btnLamMoi.Enabled = false;
+            btnLuu.Enabled = false;
 
         }
 
@@ -166,10 +167,10 @@ namespace MaDITuan
 
                     playSound(sound_toplay);
 
-                    game = new FightingGame(this.n);
+                    game = new PlayerToPlay(this.n);
                     game.Ve_BanCo(panel_BanCo);
                     game.add_actionClick();
-                    game.setup(txt_Diem, lblKQ);
+                    game.setup(txt_Diem, lblKQ, btnLuu, panel_BanCo);
 
                     txt_Name.Text = NamePlayer;
 
@@ -197,13 +198,16 @@ namespace MaDITuan
 
             timer1.Stop();
 
+            Stop1 = false;
+
             playSound(sound_wait);
 
             btnKhoiTao.Enabled = true;
-            txtName.Text = "";
+            btnLuu.Enabled = false;
+            panel_BanCo.Enabled = true;
+
             txt_Name.Text = "";
             txt_Diem.Text = "";
-            cmbBanCo.Text = "";
             lblPhut.Text = "00";
             lblGiay.Text = "00";
 
@@ -216,7 +220,7 @@ namespace MaDITuan
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if(Stop1 != false)
+            if(Stop1 != true)
             {
                 int giay = Convert.ToInt32(lblGiay.Text);
                 int phut = Convert.ToInt32(lblPhut.Text);
@@ -259,7 +263,7 @@ namespace MaDITuan
         {
             this.Close();
             conn.Close();
-            frm_FightingGame game = new frm_FightingGame();
+            frm_PlayerToPlay game = new frm_PlayerToPlay();
             game.ShowDialog();
         }
 
@@ -273,8 +277,6 @@ namespace MaDITuan
             int flag = 0;
 
             decimal kq_tmp = 9999;
-
-
 
             try
             {
@@ -300,7 +302,7 @@ namespace MaDITuan
             {
                 if(kq_tmp > kq)
                 {
-                    cmd = new SqlCommand("Update Times set Timer = " + kq + " where Name = N'" + NamePlayer + "';", conn);
+                    cmd = new SqlCommand("Update Times set Timer = " + kq + " where Name = N'" + NamePlayer + "' and BanCo = '" + cmbBanCo.Text + "';", conn);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Đã cập nhật kết quả thành công.!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

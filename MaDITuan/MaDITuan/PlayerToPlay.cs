@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace MaDITuan
 {
-    public class FightingGame : KnightTrip
+    public class PlayerToPlay : KnightTrip
     {
         private int x_player, y_player;
         private int goal_user;
@@ -18,6 +18,8 @@ namespace MaDITuan
 
         private TextBox txt_goal;
         private Label lblKQ;
+        private Button btnLuu;
+        private Panel panel_BanCo;
 
         public int X_player { get => X_player1; set => X_player1 = value; }
         public int Y_player { get => Y_player1; set => Y_player1 = value; }
@@ -25,7 +27,7 @@ namespace MaDITuan
         public int X_player1 { get => x_player; set => x_player = value; }
         public int Y_player1 { get => y_player; set => y_player = value; }
 
-        public FightingGame(int so_oco) : base(so_oco)
+        public PlayerToPlay(int so_oco) : base(so_oco)
         {
             this.goal_user = 0;
             this.player_start = false;
@@ -39,10 +41,12 @@ namespace MaDITuan
             }
         }
 
-        public void setup(TextBox txt_goal, Label lblKQ )
+        public void setup(TextBox txt_goal, Label lblKQ, Button btnLuu, Panel panel_BanCo)
         {
             this.txt_goal = txt_goal;
             this.lblKQ = lblKQ;
+            this.btnLuu = btnLuu;
+            this.panel_BanCo = panel_BanCo;
         }
 
         public new void Ve_BanCo(Panel panel)
@@ -108,7 +112,7 @@ namespace MaDITuan
                     }
                     else
                     {    
-                        if(base.getbanco().getMang()[x_tmp, y_tmp].Check == 1)
+  /*                      if(base.getbanco().getMang()[x_tmp, y_tmp].Check == 1)
                         {
                             this.goal_user--;
 
@@ -153,7 +157,7 @@ namespace MaDITuan
                             Tao_cacO_TiepTheo(x_tmp, y_tmp);
                         }
                         else
-                        {
+                        { */
                             base.Clear(base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co());
 
                             base.getbanco().getMang()[this.X_player, this.Y_player].Lock1 = false;
@@ -164,15 +168,28 @@ namespace MaDITuan
 
                             this.goal_user++;
                             this.txt_goal.Invalidate();
-                            this.txt_goal.Text = Convert.ToString(this.goal_user);
+                            this.txt_goal.Text = Convert.ToString(this.goal_user);   
 
                             if (this.goal_user == base.So_o * base.So_o)
                             {
-                                frm_FightingGame.Stop1 = false;
+                                frm_PlayerToPlay.Stop1 = true;
                                 MessageBox.Show("Chúc mừng bạn đã chiến thắng.!!!", "Thông Báo Chiến Thắng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 tmp.Invalidate();
                                 base.Ve_quanco(tmp, PLAYER);
                                 this.lblKQ.Text = "Đã chiến Thằng !!!";
+                                this.btnLuu.Enabled = true;
+                                this.panel_BanCo.Enabled = false;
+                                return;
+                            }
+                            else if (CountMove(x_tmp, y_tmp) == 0)
+                            {
+                                frm_PlayerToPlay.Stop1 = true;
+                                MessageBox.Show("Bạn đã hết đường đi.!!!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                tmp.Invalidate();
+                                base.Ve_quanco(tmp, PLAYER);
+                                this.lblKQ.Text = "Thất bại!!!";
+                                this.btnLuu.Enabled = false;
+                                this.panel_BanCo.Enabled = false;
                                 return;
                             }
                             else
@@ -195,7 +212,7 @@ namespace MaDITuan
 
                                 Tao_cacO_TiepTheo(x_tmp, y_tmp);
                             }
-                        }
+ //                       }
                     }
                 }
             }
@@ -218,7 +235,7 @@ namespace MaDITuan
             {
                 int x_tmp = x + base.getMangCol()[i];
                 int y_tmp = y + base.getMangRow()[i];
-                if (x_tmp >= 0 && x_tmp < this.So_o && y_tmp >= 0 && y_tmp < this.So_o)
+                if (x_tmp >= 0 && x_tmp < this.So_o && y_tmp >= 0 && y_tmp < this.So_o && base.getbanco().getMang()[x_tmp, y_tmp].Check == 0)
                 {
                     this.col_player[i] = x_tmp;
                     this.row_player[i] = y_tmp;
