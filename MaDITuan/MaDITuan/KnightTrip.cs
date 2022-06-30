@@ -14,14 +14,9 @@ namespace MaDITuan
     {
         private Ban_Co banco;
         private int goal;
-        private int x_priorities;
-        private int y_priorities;
         private int so_o;
         private int[] row;
         private int[] col;
-
-        const String BOT = "Bot";
-        const String BOT_NEXTLOCATION = "Bot_NextLocation";
 
         private int[] STT_hang = new int[10] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
         private String[] STT_cot = new string[10] { "A", "B", "C", "D", "E", "F", "G", "H", "I", "J" };
@@ -29,18 +24,6 @@ namespace MaDITuan
         private int[] dd_X;
         private int[] dd_Y;
         private Boolean win;
-
-        public int X_priorities
-        {
-            get => x_priorities;
-            set => x_priorities = value;
-        }
-
-        public int Y_priorities
-        {
-            get => y_priorities;
-            set => y_priorities = value;
-        }
 
         public int So_o 
         { 
@@ -68,10 +51,10 @@ namespace MaDITuan
             banco = new Ban_Co(So_o);
 
             //Tạo mảng các phần tử cộng vào j
-            row = new int[8] { 1, 2, 2, 1, -1, -2, -2, -1 };
+            col = new int[8] { 1, 2, 2, 1, -1, -2, -2, -1 };
 
             //Tạo mảng các phần tử cộng vào i
-            col = new int[8] { -2, -1, 1, 2, 2, 1, -1, -2 };
+            row = new int[8] { -2, -1, 1, 2, 2, 1, -1, -2 };
 
         }
 
@@ -93,11 +76,6 @@ namespace MaDITuan
         public int getGoal()
         {
             return goal;
-        }
-
-        public void setGoal(int g)
-        {
-             this.goal = g;
         }
 
         public int[] getMangRow()
@@ -193,8 +171,8 @@ namespace MaDITuan
 
                 for (int i = 0; i < 8; i++)
                 {
-                    int x_tmp = x + col[i];
-                    int y_tmp = y + row[i];
+                    int x_tmp = x + row[i];
+                    int y_tmp = y + col[i];
                     if (x_tmp < this.so_o && x_tmp >= 0 && y_tmp < this.so_o && y_tmp >= 0 && banco.getMang()[x_tmp, y_tmp].Check == 0)
                     {
                         NuocDi tmp = new NuocDi(CountMove(x_tmp, y_tmp), x_tmp, y_tmp);
@@ -239,7 +217,6 @@ namespace MaDITuan
 
         public void Ve_goal(PictureBox pic, int goal)
         {
-   //         this.goal++;
             pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.Clear_Chess);
             pic.Invalidate();
 
@@ -265,8 +242,8 @@ namespace MaDITuan
             int count = 0;
             for (int i = 0; i < 8; i++)
             {
-                int x_tmp = x + col[i];
-                int y_tmp = y + row[i];
+                int x_tmp = x + row[i];
+                int y_tmp = y + col[i];
                 if (x_tmp >= 0 && x_tmp < this.So_o && y_tmp >= 0 && y_tmp < this.So_o && banco.getMang()[x_tmp, y_tmp].Check == 0)
                 {
                     count++;

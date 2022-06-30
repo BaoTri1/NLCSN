@@ -40,6 +40,7 @@
             this.gBox_ChucNang = new System.Windows.Forms.GroupBox();
             this.txt_td_i = new System.Windows.Forms.TextBox();
             this.lbl_td_i = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.cmbSpeed = new System.Windows.Forms.ComboBox();
             this.lbl_td_j = new System.Windows.Forms.Label();
             this.lblSpeed = new System.Windows.Forms.Label();
@@ -59,7 +60,6 @@
             this.lblHeading = new System.Windows.Forms.Label();
             this.panel_BanCo = new System.Windows.Forms.Panel();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.timer2 = new System.Windows.Forms.Timer(this.components);
             this.panel_ChiSo = new System.Windows.Forms.Panel();
             this.gBoxTT = new System.Windows.Forms.GroupBox();
             this.lbl_Text_Kq = new System.Windows.Forms.Label();
@@ -76,7 +76,6 @@
             this.lbl_TongSoO = new System.Windows.Forms.Label();
             this.lbl_Text_BanCo = new System.Windows.Forms.Label();
             this.lblBanCo = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.Menu_CN.SuspendLayout();
             this.panel_TT.SuspendLayout();
             this.gBox_ChucNang.SuspendLayout();
@@ -191,6 +190,17 @@
             this.lbl_td_i.Size = new System.Drawing.Size(113, 20);
             this.lbl_td_i.TabIndex = 2;
             this.lbl_td_i.Text = "Nhập tọa độ i:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
+            this.label2.Location = new System.Drawing.Point(28, -299);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(324, 38);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Chế Độ Máy Chơi";
             // 
             // cmbSpeed
             // 
@@ -392,10 +402,6 @@
             this.timer1.Interval = 3000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // timer2
-            // 
-            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
             // panel_ChiSo
             // 
             this.panel_ChiSo.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -570,17 +576,6 @@
             this.lblBanCo.TabIndex = 0;
             this.lblBanCo.Text = "Bàn Cờ: ";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Ravie", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.MediumBlue;
-            this.label2.Location = new System.Drawing.Point(28, -299);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(324, 38);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Chế Độ Máy Chơi";
-            // 
             // frm_MPmadituan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -644,7 +639,6 @@
         private System.Windows.Forms.Label lblSpeed;
         private System.Windows.Forms.Panel panel_BanCo;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer timer2;
         private System.Windows.Forms.Panel panel_ChiSo;
         private System.Windows.Forms.GroupBox gBoxTT;
         private System.Windows.Forms.Label lblBanCo;

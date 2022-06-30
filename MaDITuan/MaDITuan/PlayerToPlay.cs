@@ -56,7 +56,7 @@ namespace MaDITuan
 
         public void Ve_Goal(PictureBox pic)
         {
-            pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.PaintGoal_XDo_Event);
+            pic.Paint += new System.Windows.Forms.PaintEventHandler(Paint_Event.PaintChess2_Event);
         }
 
         public void action_click(Object sender, EventArgs e)
@@ -80,7 +80,7 @@ namespace MaDITuan
                 //khóa ô cờ lại
                 base.getbanco().getMang()[X_player, Y_player].Lock1 = true;
 
-                //Đánh dấu ô thuộc về người chơi Check = 2
+                //Đánh dấu ô thuộc về người chơi Check = 1
                 base.getbanco().getMang()[X_player, Y_player].Check = 1;
 
                 this.goal_user++;
@@ -111,38 +111,48 @@ namespace MaDITuan
 
                     }
                     else
-                    {    
-  /*                      if(base.getbanco().getMang()[x_tmp, y_tmp].Check == 1)
+                    {
+                        base.Clear(base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co());
+
+                        base.getbanco().getMang()[this.X_player, this.Y_player].Lock1 = false;
+
+                        base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co().Invalidate();
+
+                        Ve_Goal(base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co());
+
+                        this.goal_user++;
+                        this.txt_goal.Invalidate();
+                        this.txt_goal.Text = Convert.ToString(this.goal_user);
+
+                        if (this.goal_user == base.So_o * base.So_o)
                         {
-                            this.goal_user--;
-
-                            //ghi kết quả lên Giao diện
-                            this.txt_goal.Invalidate();
-
-                            this.txt_goal.Text = Convert.ToString(this.goal_user);
-
-                            //Xóa đồ họa của ô cờ đang click vào
-                            base.Clear(base.getbanco().getMang()[x_tmp, y_tmp].getO_Co());
-
-                            //đánh dấu ô cờ mà quân mã đàn đứng ko thuộc về người chơi.
-                            base.getbanco().getMang()[this.X_player, this.Y_player].Check = 0;
-
-                            //Xóa đồ họa ở ô cờ mà quân mã đang đứng
-                            base.Clear(base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co());
-
-                            //Yêu cầu vẽ lại ô cờ
-                            base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co().Invalidate();
-
-                            //Mở khóa ô cờ thể hiện quân mã ko còn đứng ở đó nữa
-                            base.getbanco().getMang()[this.X_player, this.Y_player].Lock1 = false;
-
-                            //Yêu cầu vẽ lại ô cờ
+                            frm_PlayerToPlay.Stop1 = true;
+                            MessageBox.Show("Chúc mừng bạn đã chiến thắng.!!!", "Thông Báo Chiến Thắng", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            tmp.Invalidate();
+                            base.Ve_quanco(tmp, PLAYER);
+                            this.lblKQ.Text = "Đã chiến Thằng !!!";
+                            this.btnLuu.Enabled = true;
+                            this.panel_BanCo.Enabled = false;
+                            return;
+                        }
+                        else if (CountMove(x_tmp, y_tmp) == 0)
+                        {
+                            frm_PlayerToPlay.Stop1 = true;
+                            MessageBox.Show("Bạn đã hết đường đi.!!!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            tmp.Invalidate();
+                            base.Ve_quanco(tmp, PLAYER);
+                            this.lblKQ.Text = "Thất bại!!!";
+                            this.btnLuu.Enabled = false;
+                            this.panel_BanCo.Enabled = false;
+                            return;
+                        }
+                        else
+                        {
                             tmp.Invalidate();
 
-                            //Vẽ quân mã lên ô Click
+                            //Vẽ quân mã của Player
                             base.Ve_quanco(tmp, PLAYER);
 
-                            //Lấy tạo độ x, y của ô đang click vào
                             this.X_player = x_tmp;
                             this.Y_player = y_tmp;
 
@@ -156,63 +166,6 @@ namespace MaDITuan
 
                             Tao_cacO_TiepTheo(x_tmp, y_tmp);
                         }
-                        else
-                        { */
-                            base.Clear(base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co());
-
-                            base.getbanco().getMang()[this.X_player, this.Y_player].Lock1 = false;
-
-                            base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co().Invalidate();
-
-                            Ve_Goal(base.getbanco().getMang()[this.X_player, this.Y_player].getO_Co());
-
-                            this.goal_user++;
-                            this.txt_goal.Invalidate();
-                            this.txt_goal.Text = Convert.ToString(this.goal_user);   
-
-                            if (this.goal_user == base.So_o * base.So_o)
-                            {
-                                frm_PlayerToPlay.Stop1 = true;
-                                MessageBox.Show("Chúc mừng bạn đã chiến thắng.!!!", "Thông Báo Chiến Thắng", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                                tmp.Invalidate();
-                                base.Ve_quanco(tmp, PLAYER);
-                                this.lblKQ.Text = "Đã chiến Thằng !!!";
-                                this.btnLuu.Enabled = true;
-                                this.panel_BanCo.Enabled = false;
-                                return;
-                            }
-                            else if (CountMove(x_tmp, y_tmp) == 0)
-                            {
-                                frm_PlayerToPlay.Stop1 = true;
-                                MessageBox.Show("Bạn đã hết đường đi.!!!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                tmp.Invalidate();
-                                base.Ve_quanco(tmp, PLAYER);
-                                this.lblKQ.Text = "Thất bại!!!";
-                                this.btnLuu.Enabled = false;
-                                this.panel_BanCo.Enabled = false;
-                                return;
-                            }
-                            else
-                            {
-                                tmp.Invalidate();
-
-                                //Vẽ quân mã của Player
-                                base.Ve_quanco(tmp, PLAYER);
-
-                                this.X_player = x_tmp;
-                                this.Y_player = y_tmp;
-
-                                //khóa ô cờ lại
-                                base.getbanco().getMang()[X_player, Y_player].Lock1 = true;
-
-                                //Đánh dấu ô thuộc về người chơi Check = 1
-                                base.getbanco().getMang()[X_player, Y_player].Check = 1;
-
-                                resetMang();
-
-                                Tao_cacO_TiepTheo(x_tmp, y_tmp);
-                            }
- //                       }
                     }
                 }
             }
@@ -233,12 +186,13 @@ namespace MaDITuan
         {
             for (int i = 0; i < 8; i++)
             {
-                int x_tmp = x + base.getMangCol()[i];
-                int y_tmp = y + base.getMangRow()[i];
+                int x_tmp = x + base.getMangRow()[i];
+                int y_tmp = y + base.getMangCol()[i];
                 if (x_tmp >= 0 && x_tmp < this.So_o && y_tmp >= 0 && y_tmp < this.So_o && base.getbanco().getMang()[x_tmp, y_tmp].Check == 0)
                 {
-                    this.col_player[i] = x_tmp;
-                    this.row_player[i] = y_tmp;
+                    this.row_player[i] = x_tmp;
+                    this.col_player[i] = y_tmp;
+                    
                 }
             }
         }
@@ -247,7 +201,7 @@ namespace MaDITuan
         {
             for(int i = 0; i < 8; i++)
             {
-                if(x == this.col_player[i] && y == this.row_player[i])
+                if(x == this.row_player[i] && y == this.col_player[i])
                 {
                     return true;
                 }

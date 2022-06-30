@@ -54,8 +54,6 @@ namespace MaDITuan
                         {
                             o_co.getO_Co().BackColor = System.Drawing.Color.White;
                         }
-                        o_co.X = i;
-                        o_co.Y = j;
                         mango_co[i, j] = o_co;
                         count++;
                     }

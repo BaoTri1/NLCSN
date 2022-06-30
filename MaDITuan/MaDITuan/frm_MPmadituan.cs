@@ -17,12 +17,9 @@ namespace MaDITuan
         private System.Media.SoundPlayer soundplayer;
         private String sound_wait = Application.StartupPath + "\\Music\\action-110116.wav";
         private String sound_toplay = Application.StartupPath + "\\Music\\durante-9005.wav";
-        private String sound_readyGo = Application.StartupPath + "\\Music\\y2mate.com-Ready-Go-Memes.wav";
         private KnightTrip knighttrip;
 
         const String BOT = "Bot";
-        const String BOT_NEXTLOCATION = "Bot_NextLocation";
-        const String PLAYER = "Player";
 
         private String[] toadoX;
         private int[] toadoY;
@@ -109,45 +106,24 @@ namespace MaDITuan
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            int x = knighttrip.getDD_X()[this.buocdi];
-            int y = knighttrip.getDD_Y()[this.buocdi];
-
-            knighttrip.Clear(knighttrip.getbanco().getMang()[x, y].getO_Co());
-            knighttrip.getbanco().getMang()[x, y].getO_Co().Invalidate();
-            knighttrip.Ve_goal(knighttrip.getbanco().getMang()[x, y].getO_Co(), this.buocdi);
-
-
-            this.toadoX[this.count] = chuyendoi_chu(x);
-            this.toadoY[this.count] = y;
-            this.count++;
-
-            if (this.buocdi == this.n * this.n)
+            if (knighttrip.getGoal() == this.n * this.n)
             {
-                timer1.Enabled = false;
-                DialogResult result = MessageBox.Show("Đã hoàn thành hành trình đi tuần của quân MÃ. ", "Chúc mừng Bạn!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                if (result == DialogResult.OK)
-                {
-                    soundplayer.Stop();
-                    playSound(sound_wait);
+                int x = knighttrip.getDD_X()[this.buocdi];
+                int y = knighttrip.getDD_Y()[this.buocdi];
 
-                    btnLuuTru.Enabled = true;
+                knighttrip.Clear(knighttrip.getbanco().getMang()[x, y].getO_Co());
+                knighttrip.getbanco().getMang()[x, y].getO_Co().Invalidate();
+                knighttrip.Ve_goal(knighttrip.getbanco().getMang()[x, y].getO_Co(), this.buocdi);
 
-                    lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
-                    lbl_Text_Kq.Text = "Đã hoàn thành.";
-                    in_toado();
-                }
-            }
-            else
-            {
-                this.buocdi++;
 
-                int x_next = knighttrip.getDD_X()[this.buocdi];
-                int y_next = knighttrip.getDD_Y()[this.buocdi];
+                this.toadoX[this.count] = chuyendoi_chu(x);
+                this.toadoY[this.count] = y;
+                this.count++;
 
-                if(x_next == -1 && y_next == -1)
+                if (this.buocdi == this.n * this.n)
                 {
                     timer1.Enabled = false;
-                    DialogResult result = MessageBox.Show("Không tìm thấy hành trình đi tuần của quân MÃ. ", "Rất tiếc!!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    DialogResult result = MessageBox.Show("Đã hoàn thành hành trình đi tuần của quân MÃ. ", "Chúc mừng Bạn!!!!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     if (result == DialogResult.OK)
                     {
                         soundplayer.Stop();
@@ -156,17 +132,44 @@ namespace MaDITuan
                         btnLuuTru.Enabled = true;
 
                         lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
-                        lbl_Text_Kq.Text = "Không hoàn thành.";
+                        lbl_Text_Kq.Text = "Đã hoàn thành.";
                         in_toado();
                     }
                 }
                 else
                 {
-                    knighttrip.getbanco().getMang()[x_next, y_next].getO_Co().Invalidate();
+                    this.buocdi++;
 
-                    knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x_next, y_next].getO_Co(), BOT);
+                    int x_next = knighttrip.getDD_X()[this.buocdi];
+                    int y_next = knighttrip.getDD_Y()[this.buocdi];
+
+                    if (x_next == -1 && y_next == -1)
+                    {
+                        timer1.Enabled = false;
+                    }
+                    else
+                    {
+                        knighttrip.getbanco().getMang()[x_next, y_next].getO_Co().Invalidate();
+
+                        knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x_next, y_next].getO_Co(), BOT);
+                    }
                 }
+            }
+            else
+            {
+                timer1.Enabled = false;
+                DialogResult result = MessageBox.Show("Không tìm thấy hành trình đi tuần của quân MÃ. ", "Rất tiếc!!!!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (result == DialogResult.OK)
+                {
+                    soundplayer.Stop();
+                    playSound(sound_wait);
 
+                    btnLuuTru.Enabled = true;
+
+                    lbl_Text_TongSoODaDi.Text = Convert.ToString(knighttrip.getGoal());
+                    lbl_Text_Kq.Text = "Không hoàn thành.";
+                    in_toado();
+                }
             }
         }
 
@@ -182,11 +185,6 @@ namespace MaDITuan
             timer1.Enabled = true;
             btnNgung.Text = "Tạm Dừng";
             btnNgung.Click += btnNgung_Click;
-        }
-
-        private void timer2_Tick(object sender, EventArgs e)
-        {
-
         }
 
         private void chơiĐốiKhángToolStripMenuItem_Click(object sender, EventArgs e)
@@ -239,6 +237,7 @@ namespace MaDITuan
                 if (x >= 0 && x < n && y >= 0 && y < n)
                 {
                     knighttrip.getbanco().getMang()[x, y].getO_Co().Invalidate();
+
                     //Vẽ quân mã tại vị trí (x, y)
                     knighttrip.Ve_quanco(knighttrip.getbanco().getMang()[x, y].getO_Co(), BOT);
 
@@ -318,21 +317,16 @@ namespace MaDITuan
             {
                 this.speed = 500;
                 timer1.Interval = this.speed;
-                timer2.Interval = this.speed;
-
             }
            else if(cmbSpeed.Text == "0.1")
            {
                 this.speed = 100;
                 timer1.Interval = this.speed;
-                timer2.Interval = this.speed;
             }
            else
            {
                 this.speed = Convert.ToInt32(cmbSpeed.Text) * 1000;
                 timer1.Interval = this.speed;
-                timer2.Interval = this.speed;
-
            }
         }
 
