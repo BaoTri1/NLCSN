@@ -40,6 +40,7 @@
             this.gBox_ChucNang = new System.Windows.Forms.GroupBox();
             this.cmbBanCo = new System.Windows.Forms.ComboBox();
             this.gBoxLuatchoi = new System.Windows.Forms.GroupBox();
+            this.lbl2 = new System.Windows.Forms.Label();
             this.lbl1 = new System.Windows.Forms.Label();
             this.btnLamMoi = new System.Windows.Forms.Button();
             this.btnKhoiTao = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.panelTT = new System.Windows.Forms.Panel();
             this.gBoxTTVD = new System.Windows.Forms.GroupBox();
             this.gBoxLuotdi = new System.Windows.Forms.GroupBox();
+            this.proBarCount = new System.Windows.Forms.ProgressBar();
             this.btnLuu = new System.Windows.Forms.Button();
             this.txt_Diem = new System.Windows.Forms.TextBox();
             this.lblDiem = new System.Windows.Forms.Label();
@@ -69,7 +71,10 @@
             this.gBoxKQ = new System.Windows.Forms.GroupBox();
             this.lblKQ = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.lbl2 = new System.Windows.Forms.Label();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.lblTGCho = new System.Windows.Forms.Label();
+            this.cmbTGcho = new System.Windows.Forms.ComboBox();
+            this.lblDVi = new System.Windows.Forms.Label();
             this.Menu_CN.SuspendLayout();
             this.panel_TT.SuspendLayout();
             this.gBox_ChucNang.SuspendLayout();
@@ -94,7 +99,7 @@
             this.thoátToolStripMenuItem});
             this.Menu_CN.Location = new System.Drawing.Point(0, 0);
             this.Menu_CN.Name = "Menu_CN";
-            this.Menu_CN.Size = new System.Drawing.Size(1924, 28);
+            this.Menu_CN.Size = new System.Drawing.Size(1924, 30);
             this.Menu_CN.TabIndex = 0;
             this.Menu_CN.Text = "menuStrip1";
             // 
@@ -104,7 +109,7 @@
             this.môPhỏngMãĐiTuầnToolStripMenuItem,
             this.chơiĐốiKhángToolStripMenuItem});
             this.chếĐộChơiToolStripMenuItem.Name = "chếĐộChơiToolStripMenuItem";
-            this.chếĐộChơiToolStripMenuItem.Size = new System.Drawing.Size(115, 24);
+            this.chếĐộChơiToolStripMenuItem.Size = new System.Drawing.Size(115, 26);
             this.chếĐộChơiToolStripMenuItem.Text = "Chế Độ chơi";
             // 
             // môPhỏngMãĐiTuầnToolStripMenuItem
@@ -124,14 +129,14 @@
             // luậtChơiToolStripMenuItem
             // 
             this.luậtChơiToolStripMenuItem.Name = "luậtChơiToolStripMenuItem";
-            this.luậtChơiToolStripMenuItem.Size = new System.Drawing.Size(92, 24);
+            this.luậtChơiToolStripMenuItem.Size = new System.Drawing.Size(92, 26);
             this.luậtChơiToolStripMenuItem.Text = "Luật chơi";
             this.luậtChơiToolStripMenuItem.Click += new System.EventHandler(this.luậtChơiToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
@@ -144,13 +149,16 @@
             this.panel_TT.Controls.Add(this.lblHeading);
             this.panel_TT.Location = new System.Drawing.Point(0, 31);
             this.panel_TT.Name = "panel_TT";
-            this.panel_TT.Size = new System.Drawing.Size(368, 1024);
+            this.panel_TT.Size = new System.Drawing.Size(368, 1040);
             this.panel_TT.TabIndex = 3;
             // 
             // gBox_ChucNang
             // 
-            this.gBox_ChucNang.Controls.Add(this.cmbBanCo);
+            this.gBox_ChucNang.Controls.Add(this.lblDVi);
+            this.gBox_ChucNang.Controls.Add(this.cmbTGcho);
+            this.gBox_ChucNang.Controls.Add(this.lblTGCho);
             this.gBox_ChucNang.Controls.Add(this.gBoxLuatchoi);
+            this.gBox_ChucNang.Controls.Add(this.cmbBanCo);
             this.gBox_ChucNang.Controls.Add(this.btnLamMoi);
             this.gBox_ChucNang.Controls.Add(this.btnKhoiTao);
             this.gBox_ChucNang.Controls.Add(this.txtName);
@@ -180,18 +188,28 @@
             // 
             this.gBoxLuatchoi.Controls.Add(this.lbl2);
             this.gBoxLuatchoi.Controls.Add(this.lbl1);
-            this.gBoxLuatchoi.Location = new System.Drawing.Point(-7, 314);
+            this.gBoxLuatchoi.Location = new System.Drawing.Point(8, 399);
             this.gBoxLuatchoi.Name = "gBoxLuatchoi";
             this.gBoxLuatchoi.Size = new System.Drawing.Size(343, 353);
             this.gBoxLuatchoi.TabIndex = 11;
             this.gBoxLuatchoi.TabStop = false;
             this.gBoxLuatchoi.Text = "Luật Chơi:";
             // 
+            // lbl2
+            // 
+            this.lbl2.AutoSize = true;
+            this.lbl2.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl2.Location = new System.Drawing.Point(11, 171);
+            this.lbl2.Name = "lbl2";
+            this.lbl2.Size = new System.Drawing.Size(304, 30);
+            this.lbl2.TabIndex = 7;
+            this.lbl2.Text = "Mỗi ô chỉ đi qua được một lần.\r\n";
+            // 
             // lbl1
             // 
             this.lbl1.AutoSize = true;
             this.lbl1.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.Location = new System.Drawing.Point(11, 32);
+            this.lbl1.Location = new System.Drawing.Point(11, 28);
             this.lbl1.Name = "lbl1";
             this.lbl1.Size = new System.Drawing.Size(300, 150);
             this.lbl1.TabIndex = 6;
@@ -202,7 +220,7 @@
             // 
             this.btnLamMoi.BackColor = System.Drawing.Color.White;
             this.btnLamMoi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLamMoi.Location = new System.Drawing.Point(9, 273);
+            this.btnLamMoi.Location = new System.Drawing.Point(8, 340);
             this.btnLamMoi.Name = "btnLamMoi";
             this.btnLamMoi.Size = new System.Drawing.Size(318, 35);
             this.btnLamMoi.TabIndex = 9;
@@ -214,7 +232,7 @@
             // 
             this.btnKhoiTao.BackColor = System.Drawing.Color.White;
             this.btnKhoiTao.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnKhoiTao.Location = new System.Drawing.Point(10, 201);
+            this.btnKhoiTao.Location = new System.Drawing.Point(9, 268);
             this.btnKhoiTao.Name = "btnKhoiTao";
             this.btnKhoiTao.Size = new System.Drawing.Size(317, 36);
             this.btnKhoiTao.TabIndex = 6;
@@ -309,6 +327,7 @@
             // 
             // gBoxLuotdi
             // 
+            this.gBoxLuotdi.Controls.Add(this.proBarCount);
             this.gBoxLuotdi.Controls.Add(this.btnLuu);
             this.gBoxLuotdi.Controls.Add(this.txt_Diem);
             this.gBoxLuotdi.Controls.Add(this.lblDiem);
@@ -323,11 +342,20 @@
             this.gBoxLuotdi.TabStop = false;
             this.gBoxLuotdi.Text = "Lượt đi:";
             // 
+            // proBarCount
+            // 
+            this.proBarCount.Location = new System.Drawing.Point(11, 228);
+            this.proBarCount.Maximum = 10000;
+            this.proBarCount.Name = "proBarCount";
+            this.proBarCount.Size = new System.Drawing.Size(240, 32);
+            this.proBarCount.Step = 100;
+            this.proBarCount.TabIndex = 6;
+            // 
             // btnLuu
             // 
             this.btnLuu.BackColor = System.Drawing.SystemColors.Window;
             this.btnLuu.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLuu.Location = new System.Drawing.Point(11, 240);
+            this.btnLuu.Location = new System.Drawing.Point(11, 317);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(483, 50);
             this.btnLuu.TabIndex = 5;
@@ -498,15 +526,43 @@
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // lbl2
+            // timer2
             // 
-            this.lbl2.AutoSize = true;
-            this.lbl2.Font = new System.Drawing.Font("Segoe Print", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.Location = new System.Drawing.Point(11, 171);
-            this.lbl2.Name = "lbl2";
-            this.lbl2.Size = new System.Drawing.Size(304, 30);
-            this.lbl2.TabIndex = 7;
-            this.lbl2.Text = "Mỗi ô chỉ đi qua được một lần.\r\n";
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // lblTGCho
+            // 
+            this.lblTGCho.AutoSize = true;
+            this.lblTGCho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTGCho.Location = new System.Drawing.Point(6, 182);
+            this.lblTGCho.Name = "lblTGCho";
+            this.lblTGCho.Size = new System.Drawing.Size(114, 20);
+            this.lblTGCho.TabIndex = 0;
+            this.lblTGCho.Text = "Thời gian chờ:";
+            // 
+            // cmbTGcho
+            // 
+            this.cmbTGcho.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbTGcho.FormattingEnabled = true;
+            this.cmbTGcho.Items.AddRange(new object[] {
+            "5",
+            "10",
+            "15"});
+            this.cmbTGcho.Location = new System.Drawing.Point(10, 210);
+            this.cmbTGcho.Name = "cmbTGcho";
+            this.cmbTGcho.Size = new System.Drawing.Size(179, 28);
+            this.cmbTGcho.TabIndex = 0;
+            this.cmbTGcho.SelectedIndexChanged += new System.EventHandler(this.cmbTGcho_SelectedIndexChanged);
+            // 
+            // lblDVi
+            // 
+            this.lblDVi.AutoSize = true;
+            this.lblDVi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDVi.Location = new System.Drawing.Point(207, 214);
+            this.lblDVi.Name = "lblDVi";
+            this.lblDVi.Size = new System.Drawing.Size(39, 20);
+            this.lblDVi.TabIndex = 12;
+            this.lblDVi.Text = "giây";
             // 
             // frm_PlayerToPlay
             // 
@@ -514,9 +570,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::MaDITuan.Properties.Resources.jani_kaasinen_7VGzV09YnvA_unsplash__1___2___1_;
             this.ClientSize = new System.Drawing.Size(1924, 1055);
+            this.Controls.Add(this.panel_TT);
             this.Controls.Add(this.panelTT);
             this.Controls.Add(this.panel_BanCo);
-            this.Controls.Add(this.panel_TT);
             this.Controls.Add(this.Menu_CN);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.Menu_CN;
@@ -592,5 +648,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lbl_Phut_KL;
         private System.Windows.Forms.Label lbl2;
+        private System.Windows.Forms.ProgressBar proBarCount;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label lblDVi;
+        private System.Windows.Forms.ComboBox cmbTGcho;
+        private System.Windows.Forms.Label lblTGCho;
     }
 }

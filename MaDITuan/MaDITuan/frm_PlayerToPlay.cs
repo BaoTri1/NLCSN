@@ -17,11 +17,11 @@ namespace MaDITuan
         private String sound_wait = Application.StartupPath + "\\Music\\action-110116.wav";
         private String sound_toplay = Application.StartupPath + "\\Music\\let-the-games-begin-21858.wav";
 
-        const String PLAYER = "Player";
-
         private PlayerToPlay game;
 
         private int n = 0;
+
+        private int TGcho = 10000;
 
         private static String namePlayer;
 
@@ -170,11 +170,15 @@ namespace MaDITuan
                     game = new PlayerToPlay(this.n);
                     game.Ve_BanCo(panel_BanCo);
                     game.add_actionClick();
-                    game.setup(txt_Diem, lblKQ, btnLuu, panel_BanCo);
+                    game.setup(txt_Diem, lblKQ, btnLuu, panel_BanCo, proBarCount);
 
                     txt_Name.Text = NamePlayer;
 
+                    proBarCount.Maximum = TGcho;
+                    cmbTGcho.Enabled = false;
+
                     timer1.Start();
+                    timer2.Start();
 
                     btnLamMoi.Enabled = true;
                     btnKhoiTao.Enabled = false;
@@ -205,7 +209,9 @@ namespace MaDITuan
             btnKhoiTao.Enabled = true;
             btnLuu.Enabled = false;
             panel_BanCo.Enabled = true;
+            cmbTGcho.Enabled = true;
 
+            TGcho = 10000;
             txt_Name.Text = "";
             txt_Diem.Text = "";
             lblPhut.Text = "00";
@@ -314,6 +320,29 @@ namespace MaDITuan
                 MessageBox.Show("Đã lưu kết quả thành công.!!!", "Thông Báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if(game.Player_start == true)
+            {
+                proBarCount.PerformStep();
+                if (proBarCount.Value >= proBarCount.Maximum)
+                {
+                    Stop1 = true;
+                    timer2.Stop();
+                    proBarCount.Value = 0;
+                    MessageBox.Show("Bạn đã thua cuộc.", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    lblKQ.Text = "Thất bại!!!";
+                    btnLuu.Enabled = false;
+                    panel_BanCo.Enabled = false;
+                }
+            }
+        }
+
+        private void cmbTGcho_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            TGcho = Convert.ToInt32(cmbTGcho.Text) * 1000;
         }
     }
 }

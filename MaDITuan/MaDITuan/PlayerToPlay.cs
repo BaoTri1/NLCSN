@@ -20,17 +20,19 @@ namespace MaDITuan
         private Label lblKQ;
         private Button btnLuu;
         private Panel panel_BanCo;
+        private ProgressBar proBarCount;
 
         public int X_player { get => X_player1; set => X_player1 = value; }
         public int Y_player { get => Y_player1; set => Y_player1 = value; }
  
         public int X_player1 { get => x_player; set => x_player = value; }
         public int Y_player1 { get => y_player; set => y_player = value; }
+        public bool Player_start { get => player_start; set => player_start = value; }
 
         public PlayerToPlay(int so_oco) : base(so_oco)
         {
             this.goal_user = 0;
-            this.player_start = false;
+            this.Player_start = false;
             this.col_player = new int[8];
             this.row_player = new int[8];
 
@@ -41,12 +43,13 @@ namespace MaDITuan
             }
         }
 
-        public void setup(TextBox txt_goal, Label lblKQ, Button btnLuu, Panel panel_BanCo)
+        public void setup(TextBox txt_goal, Label lblKQ, Button btnLuu, Panel panel_BanCo, ProgressBar proBarCount)
         {
             this.txt_goal = txt_goal;
             this.lblKQ = lblKQ;
             this.btnLuu = btnLuu;
             this.panel_BanCo = panel_BanCo;
+            this.proBarCount = proBarCount;
         }
 
         public new void Ve_BanCo(Panel panel)
@@ -61,9 +64,9 @@ namespace MaDITuan
 
         public void action_click(Object sender, EventArgs e)
         {
-            if (this.player_start == false)
+            if (this.Player_start == false)
             {
-                this.player_start = true;
+               this.Player_start = true;
 
                 PictureBox tmp = sender as PictureBox;
 
@@ -89,6 +92,7 @@ namespace MaDITuan
 
                 //Lấy các ô tiếp theo hợp lệ
                 Tao_cacO_TiepTheo(this.X_player, this.Y_player);
+
             }
             else
             {
@@ -127,17 +131,22 @@ namespace MaDITuan
                         if (this.goal_user == base.So_o * base.So_o)
                         {
                             frm_PlayerToPlay.Stop1 = true;
+                            this.Player_start = false;
+                            this.proBarCount.Value = 0;
                             MessageBox.Show("Chúc mừng bạn đã chiến thắng.!!!", "Thông Báo Chiến Thắng", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             tmp.Invalidate();
                             base.Ve_quanco(tmp, PLAYER);
                             this.lblKQ.Text = "Đã chiến Thằng !!!";
                             this.btnLuu.Enabled = true;
                             this.panel_BanCo.Enabled = false;
+                            
                             return;
                         }
                         else if (CountMove(x_tmp, y_tmp) == 0)
                         {
                             frm_PlayerToPlay.Stop1 = true;
+                            this.Player_start = false;
+                            this.proBarCount.Value = 0;
                             MessageBox.Show("Bạn đã hết đường đi.!!!", "Thất bại", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             tmp.Invalidate();
                             base.Ve_quanco(tmp, PLAYER);
@@ -165,6 +174,9 @@ namespace MaDITuan
                             resetMang();
 
                             Tao_cacO_TiepTheo(x_tmp, y_tmp);
+
+                            this.proBarCount.Value = 0;
+
                         }
                     }
                 }
